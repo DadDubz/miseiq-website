@@ -3,11 +3,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
-const navItems = [
-  { label: "Features", href: "#features" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Login", href: "#login" },
-];
+const navItems = [{ label: "Features", href: "#features" }, { label: "Pricing", href: "/pricing" }];
 
 export default function Home() {
   return (
@@ -48,7 +44,7 @@ export default function Home() {
         </p>
         <div className="mt-6 flex gap-4">
           <Button asChild className="bg-[#081a3a] px-6 py-3 text-lg text-white hover:bg-[#112755]">
-            <Link href="#pricing">Get Started</Link>
+            <Link href="/pricing">Get Started</Link>
           </Button>
           <Button
             asChild
@@ -148,52 +144,6 @@ export default function Home() {
             lifting so we can focus on our guests.”
           </blockquote>
         </div>
-      </section>
-
-      <section id="pricing" className="mx-auto w-full max-w-4xl px-6 py-20 text-center">
-        <h2 className="mb-6 text-3xl font-bold text-[#081a3a]">
-          <span className="border-l-4 border-[#c9a646] pl-4">Simple Pricing</span>
-        </h2>
-        <p className="mx-auto mb-10 max-w-2xl text-slate-700">
-          Pay per location or scale up with volume-based plans. Start with a 30-day free trial—no credit
-          card required.
-        </p>
-        <div className="flex flex-col gap-6 md:flex-row md:justify-center">
-          <Card className="flex flex-col border-2 border-[#081a3a] bg-white md:w-1/3">
-            <CardContent className="flex flex-col gap-4 p-6">
-              <h3 className="text-2xl font-semibold text-[#081a3a]">Standard</h3>
-              <p className="text-slate-700">Perfect for single locations with core ingestion and briefings.</p>
-              <Button className="mt-auto bg-[#081a3a] text-white hover:bg-[#112755]">Try It Free</Button>
-            </CardContent>
-          </Card>
-          <Card className="flex flex-col border-2 border-[#081a3a] bg-white md:w-1/3">
-            <CardContent className="flex flex-col gap-4 p-6">
-              <h3 className="text-2xl font-semibold text-[#081a3a]">Growth</h3>
-              <p className="text-slate-700">For multi-unit groups with custom alert thresholds and support.</p>
-              <Button className="mt-auto bg-[#081a3a] text-white hover:bg-[#112755]">Get Started</Button>
-            </CardContent>
-          </Card>
-          <Card className="flex flex-col border-2 border-[#081a3a] bg-white md:w-1/3">
-            <CardContent className="flex flex-col gap-4 p-6">
-              <h3 className="text-2xl font-semibold text-[#081a3a]">Enterprise</h3>
-              <p className="text-slate-700">Tailored solutions for chains with integrations and API access.</p>
-              <Button className="mt-auto bg-[#081a3a] text-white hover:bg-[#112755]">Contact Sales</Button>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      <section id="login" className="mx-auto w-full max-w-4xl px-6 py-16 text-center">
-        <h2 className="mb-6 text-3xl font-bold text-[#081a3a]">
-          <span className="border-l-4 border-[#c9a646] pl-4">Log In to Your Dashboard</span>
-        </h2>
-        <p className="mx-auto max-w-3xl text-slate-700">
-          Already using MiseIQ? Jump back into your dashboard to review alerts, sales trends, and today’s
-          intelligence briefing.
-        </p>
-        <Button asChild className="mt-8 bg-[#081a3a] text-white hover:bg-[#112755]">
-          <Link href="#top">Go to Top</Link>
-        </Button>
       </section>
 
       <section className="mx-auto w-full max-w-4xl px-6 py-16 text-center">
