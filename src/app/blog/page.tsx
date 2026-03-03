@@ -58,7 +58,11 @@ export default function BlogPage() {
               Pricing
             </Link>
             <Link
+<<<<<<< codex/update-website-design-for-branding-y6eyud
               href="/demo"
+=======
+              href="/pricing#demo"
+>>>>>>> main
               className="rounded-md border border-white/30 bg-white/10 px-3 py-2 backdrop-blur-sm transition hover:bg-white/20"
             >
               Book a Demo
