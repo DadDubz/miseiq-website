@@ -1,86 +1,85 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 const navItems = [
-  { label: "Dashboard", href: "#dashboard" },
-  { label: "Onboarding", href: "#onboarding" },
-  { label: "Alerts", href: "#alerts" },
-  { label: "Integrations", href: "#integrations" },
-  { label: "Intelligence", href: "#intelligence" },
-  { label: "POS Import", href: "#pos-import" },
-  { label: "Invoices", href: "#invoices" },
-  { label: "Inventory", href: "#inventory" },
+  { label: "Features", href: "#features" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "Login", href: "#login" },
 ];
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#e8eaee] text-[#081a3a]">
-      <header className="sticky top-0 z-10 border-b border-[#1d2b4f] bg-[#081a3a] text-white">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3">
-          <Link href="#dashboard" className="leading-tight">
-            <p className="text-4xl font-serif tracking-wide text-[#d5b15b]">MiseIQ</p>
-            <p className="text-sm font-semibold">Financial Mise en Place</p>
+    <main className="flex min-h-screen w-full flex-col items-center bg-[#e8eaee] text-[#081a3a]">
+      <header className="sticky top-0 z-10 w-full border-b border-[#1b2a4a] bg-[#081a3a] py-4 text-white">
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6">
+          <Link href="#top" className="flex flex-col leading-tight">
+            <span className="font-serif text-5xl tracking-wide text-[#d5b15b]">MiseIQ</span>
+            <span className="text-sm font-semibold">Financial Mise en Place</span>
           </Link>
-          <nav className="hidden items-center gap-2 text-sm font-semibold md:flex">
+          <nav className="flex gap-2 text-sm font-semibold">
             {navItems.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="rounded-md px-3 py-2 transition hover:bg-white/10"
-              >
+              <Link key={item.label} href={item.href} className="rounded-md px-3 py-2 transition hover:bg-white/10">
                 {item.label}
               </Link>
             ))}
-            <Link
-              href="#logout"
-              className="ml-2 rounded-md bg-white px-4 py-2 font-bold text-[#081a3a] transition hover:bg-[#ece7d7]"
-            >
-              Logout
-            </Link>
           </nav>
         </div>
       </header>
 
-      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-6 px-4 py-8 lg:grid-cols-[2fr_1fr]">
-        <section id="dashboard" className="space-y-6">
-          <div>
-            <h1 className="border-l-4 border-[#c9a646] pl-3 text-5xl font-semibold">Executive Dashboard</h1>
-            <p className="mt-3 text-lg text-slate-700">
-              Daily operational intelligence with cost, labor, and risk signal prioritization.
-            </p>
-          </div>
+      <section id="top" className="mx-auto flex w-full max-w-5xl flex-col items-center gap-6 px-6 py-16 text-center">
+        <div className="flex w-full justify-center">
+          <Image
+            src="/dashboard-hero.png"
+            alt="MiseIQ dashboard overview"
+            width={1050}
+            height={560}
+            className="rounded-lg border border-slate-300 shadow-lg"
+          />
+        </div>
+        <h1 className="mt-6 text-5xl font-extrabold tracking-tight text-[#081a3a]">
+          <span className="border-l-4 border-[#c9a646] pl-4">The All‑In‑One Brain for Restaurant Operations</span>
+        </h1>
+        <p className="mt-2 max-w-3xl text-xl text-slate-700">
+          MiseIQ ingests vendor invoices, POS exports and inventory counts to normalise your data and turn
+          it into actionable insights. Stop managing spreadsheets and start running your restaurant with
+          real-time clarity.
+        </p>
+        <div className="mt-6 flex gap-4">
+          <Button asChild className="bg-[#081a3a] px-6 py-3 text-lg text-white hover:bg-[#112755]">
+            <Link href="#pricing">Get Started</Link>
+          </Button>
+          <Button
+            asChild
+            variant="outline"
+            className="border-[#081a3a] px-6 py-3 text-lg text-[#081a3a] hover:bg-[#081a3a]/10"
+          >
+            <Link href="#features">Learn More</Link>
+          </Button>
+        </div>
+      </section>
 
-          <div className="grid gap-4 md:grid-cols-3">
-            <Card className="border-[#c9a646] bg-white">
-              <CardContent className="p-5">
-                <p className="text-xs uppercase tracking-wide text-slate-500">Weekly Drift</p>
-                <p className="mt-2 text-xl">7-day sales $31,700 with labor at 31.6%.</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-white">
-              <CardContent className="p-5">
-                <p className="text-xs uppercase tracking-wide text-slate-500">Today&apos;s Immediate Risk</p>
-                <p className="mt-2 text-xl">Net sales $4,300 with $290 in comps/voids.</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-white">
-              <CardContent className="p-5">
-                <p className="text-xs uppercase tracking-wide text-slate-500">Yesterday Snapshot</p>
-                <p className="mt-2 text-xl">Sales $4,500, comps $165, voids $110.</p>
-              </CardContent>
-            </Card>
-          </div>
-
-          <Card id="intelligence" className="min-h-72 border-[#c9a646] bg-white">
-            <CardContent className="space-y-4 p-6">
-              <p className="text-xs uppercase tracking-wide text-slate-500">Primary Insight</p>
-              <p className="text-4xl font-semibold">
-                7-day sales $31,700 with labor at 31.6% of net sales. Focus on top drifts below.
+      <section id="features" className="mx-auto w-full max-w-5xl px-6 py-20">
+        <h2 className="mb-10 text-center text-3xl font-bold text-[#081a3a]">
+          <span className="border-l-4 border-[#c9a646] pl-4">Comprehensive Operational Insights</span>
+        </h2>
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <Card className="flex h-full flex-col bg-white">
+            <CardContent className="flex flex-col space-y-4 p-6">
+              <h3 className="text-xl font-semibold text-[#081a3a]">Automated Data Ingestion</h3>
+              <p className="text-slate-700">
+                Read invoices, POS exports and inventory counts automatically. Normalize suppliers and items
+                into a consistent dataset for reliable reporting.
               </p>
-              <p className="text-lg text-slate-700">
-                Monitor alert flow and execute intelligence modules to convert this summary into
-                prioritized actions.
+            </CardContent>
+          </Card>
+          <Card className="flex h-full flex-col bg-white">
+            <CardContent className="flex flex-col space-y-4 p-6">
+              <h3 className="text-xl font-semibold text-[#081a3a]">Inventory & Cost Management</h3>
+              <p className="text-slate-700">
+                Reconcile on-hand stock vs expected quantities and receive alerts when product costs drift
+                beyond configured thresholds.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link href="#onboarding" className="px-4 py-2 text-lg hover:underline">
@@ -98,71 +97,114 @@ export default function Home() {
               </div>
             </CardContent>
           </Card>
-        </section>
-
-        <aside className="space-y-4">
-          <Card id="alerts" className="bg-white">
-            <CardContent className="p-5">
-              <h2 className="text-sm uppercase tracking-wide text-slate-500">Immediate Risk</h2>
-              <p className="mt-2 text-xl">Today net sales $4,300; immediate risk from $290 comps/voids.</p>
-            </CardContent>
-          </Card>
-          <Card id="pos-import" className="bg-white">
-            <CardContent className="p-5">
-              <h2 className="text-sm uppercase tracking-wide text-slate-500">POS Import</h2>
-              <p className="mt-2 text-xl">Sales $4,500, comps $165, voids $110 synced successfully.</p>
-            </CardContent>
-          </Card>
-          <Card id="invoices" className="bg-white">
-            <CardContent className="p-5">
-              <h2 className="text-sm uppercase tracking-wide text-slate-500">AI Briefing (Medium)</h2>
-              <p className="mt-2 text-xl">Daily briefing for 2026-02-16: sales are below recent trend.</p>
-            </CardContent>
-          </Card>
-        </aside>
-
-        <Card id="onboarding" className="bg-white lg:col-span-1">
-          <CardContent className="p-6">
-            <h2 className="border-l-4 border-[#c9a646] pl-3 text-3xl font-semibold">Daily AI Briefing</h2>
-            <p className="mt-4 text-lg text-slate-700">
-              Net sales were $4,300 with labor at 35.6% and $290 in comps/voids. Open alerts today: 1.
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card id="integrations" className="bg-white lg:col-span-1">
-          <CardContent className="p-6">
-            <h2 className="text-3xl font-semibold">Top Recommended Actions</h2>
-            <p className="mt-4 rounded-md border bg-slate-100 p-4 text-lg">
-              Review vendor contracts and adjust recipe/menu mix.
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card id="inventory" className="bg-white lg:col-span-2">
-          <CardContent className="flex items-center justify-between gap-4 p-6">
-            <div>
-              <h2 className="text-3xl font-semibold">Inventory</h2>
-              <p className="mt-2 text-lg text-slate-700">
-                Count sessions, depletion alerts, and item cost drift are synced to your live inventory
-                controls.
+          <Card className="flex h-full flex-col bg-white">
+            <CardContent className="flex flex-col space-y-4 p-6">
+              <h3 className="text-xl font-semibold text-[#081a3a]">Alerts & AI Briefings</h3>
+              <p className="text-slate-700">
+                Get daily summaries of sales, costs and labor variance with action-focused recommendations to
+                prioritize your day.
               </p>
-            </div>
-            <Button asChild className="bg-[#081a3a] text-white hover:bg-[#112755]">
-              <Link href="#dashboard">Back to Dashboard</Link>
-            </Button>
-          </CardContent>
-        </Card>
-      </div>
-
-      <footer id="logout" className="border-t border-slate-300 bg-white">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-6 text-sm text-slate-600">
-          <p>© {new Date().getFullYear()} MiseIQ</p>
-          <Link href="#dashboard" className="font-semibold text-[#081a3a] hover:underline">
-            Return to Dashboard
-          </Link>
+            </CardContent>
+          </Card>
+          <Card className="flex h-full flex-col bg-white">
+            <CardContent className="flex flex-col space-y-4 p-6">
+              <h3 className="text-xl font-semibold text-[#081a3a]">Multi-Tenant Security</h3>
+              <p className="text-slate-700">
+                Keep each organization isolated with role-based access and secure authentication controls.
+              </p>
+            </CardContent>
+          </Card>
+          <Card className="flex h-full flex-col bg-white">
+            <CardContent className="flex flex-col space-y-4 p-6">
+              <h3 className="text-xl font-semibold text-[#081a3a]">Canonical Data Model</h3>
+              <p className="text-slate-700">
+                Consolidate vendor aliases and item codes into canonical products for cleaner analysis across
+                suppliers.
+              </p>
+            </CardContent>
+          </Card>
+          <Card className="flex h-full flex-col bg-white">
+            <CardContent className="flex flex-col space-y-4 p-6">
+              <h3 className="text-xl font-semibold text-[#081a3a]">POS Sales & Revenue Mix</h3>
+              <p className="text-slate-700">
+                Import daily POS activity to track sales mix and compare cost-of-goods trends over time.
+              </p>
+            </CardContent>
+          </Card>
         </div>
-      </footer>
+      </section>
+
+      <section className="mx-auto w-full max-w-4xl px-6 py-16 text-center">
+        <h2 className="mb-8 text-3xl font-bold text-[#081a3a]">
+          <span className="border-l-4 border-[#c9a646] pl-4">Loved by Restaurant Operators</span>
+        </h2>
+        <div className="space-y-8">
+          <blockquote className="mx-auto max-w-3xl italic text-slate-700">
+            “MiseIQ alerts saved us thousands when a vendor’s prices spiked overnight. It caught the issue
+            before it hit our bottom line.”
+          </blockquote>
+          <blockquote className="mx-auto max-w-3xl italic text-slate-700">
+            “Our managers no longer waste hours reconciling invoices and counts. MiseIQ does the heavy
+            lifting so we can focus on our guests.”
+          </blockquote>
+        </div>
+      </section>
+
+      <section id="pricing" className="mx-auto w-full max-w-4xl px-6 py-20 text-center">
+        <h2 className="mb-6 text-3xl font-bold text-[#081a3a]">
+          <span className="border-l-4 border-[#c9a646] pl-4">Simple Pricing</span>
+        </h2>
+        <p className="mx-auto mb-10 max-w-2xl text-slate-700">
+          Pay per location or scale up with volume-based plans. Start with a 30-day free trial—no credit
+          card required.
+        </p>
+        <div className="flex flex-col gap-6 md:flex-row md:justify-center">
+          <Card className="flex flex-col border-2 border-[#081a3a] bg-white md:w-1/3">
+            <CardContent className="flex flex-col gap-4 p-6">
+              <h3 className="text-2xl font-semibold text-[#081a3a]">Standard</h3>
+              <p className="text-slate-700">Perfect for single locations with core ingestion and briefings.</p>
+              <Button className="mt-auto bg-[#081a3a] text-white hover:bg-[#112755]">Try It Free</Button>
+            </CardContent>
+          </Card>
+          <Card className="flex flex-col border-2 border-[#081a3a] bg-white md:w-1/3">
+            <CardContent className="flex flex-col gap-4 p-6">
+              <h3 className="text-2xl font-semibold text-[#081a3a]">Growth</h3>
+              <p className="text-slate-700">For multi-unit groups with custom alert thresholds and support.</p>
+              <Button className="mt-auto bg-[#081a3a] text-white hover:bg-[#112755]">Get Started</Button>
+            </CardContent>
+          </Card>
+          <Card className="flex flex-col border-2 border-[#081a3a] bg-white md:w-1/3">
+            <CardContent className="flex flex-col gap-4 p-6">
+              <h3 className="text-2xl font-semibold text-[#081a3a]">Enterprise</h3>
+              <p className="text-slate-700">Tailored solutions for chains with integrations and API access.</p>
+              <Button className="mt-auto bg-[#081a3a] text-white hover:bg-[#112755]">Contact Sales</Button>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      <section id="login" className="mx-auto w-full max-w-4xl px-6 py-16 text-center">
+        <h2 className="mb-6 text-3xl font-bold text-[#081a3a]">
+          <span className="border-l-4 border-[#c9a646] pl-4">Log In to Your Dashboard</span>
+        </h2>
+        <p className="mx-auto max-w-3xl text-slate-700">
+          Already using MiseIQ? Jump back into your dashboard to review alerts, sales trends, and today’s
+          intelligence briefing.
+        </p>
+        <Button asChild className="mt-8 bg-[#081a3a] text-white hover:bg-[#112755]">
+          <Link href="#top">Go to Top</Link>
+        </Button>
+      </section>
+
+      <section className="mx-auto w-full max-w-4xl px-6 py-16 text-center">
+        <h2 className="mb-6 text-3xl font-bold text-[#081a3a]">
+          <span className="border-l-4 border-[#c9a646] pl-4">What’s Next for MiseIQ</span>
+        </h2>
+        <p className="mx-auto max-w-3xl text-slate-700">
+          Upcoming releases add predictive demand analytics, waste and spoilage tracking, and deeper
+          accounting + payroll integrations.
+        </p>
+      </section>
     </main>
   );
 }
