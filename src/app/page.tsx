@@ -77,6 +77,20 @@ export default function Home() {
                 Reconcile on-hand stock vs expected quantities and receive alerts when product costs drift
                 beyond configured thresholds.
               </p>
+              <div className="flex flex-wrap gap-3">
+                <Link href="#onboarding" className="px-4 py-2 text-lg hover:underline">
+                  Setup Guide
+                </Link>
+                <Link href="#integrations" className="px-4 py-2 text-lg hover:underline">
+                  Manage Integrations
+                </Link>
+                <Button asChild className="bg-[#081a3a] text-white hover:bg-[#112755]">
+                  <Link href="#intelligence">Run Intelligence</Link>
+                </Button>
+                <Button asChild className="bg-[#c9a646] text-[#081a3a] hover:bg-[#b59234]">
+                  <Link href="#alerts">Review Alerts</Link>
+                </Button>
+              </div>
             </CardContent>
           </Card>
           <Card className="flex h-full flex-col bg-white">
