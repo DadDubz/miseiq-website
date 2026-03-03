@@ -24,12 +24,18 @@ export default function Home() {
       */}
       <header className="w-full bg-white border-b border-gray-200 py-4">
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-          {/* Logo */}
-          <div className="flex items-center gap-2">
-            <Image src="/logo.png" alt="MiseIQ logo" width={40} height={40} />
-            <span className="text-xl font-bold tracking-wide text-[#1F4E79]">MiseIQ</span>
+          {/* Brand */}
+          <div className="flex flex-col">
+            {/* Primary brand name in the app's dark blue colour */}
+            <span className="text-xl font-bold tracking-wide text-[#1F4E79]">
+              MiseIQ
+            </span>
+            {/* Tagline in a warm gold to reflect the app's header design */}
+            <span className="text-sm text-[#F5A623] italic">
+              Financial Mise en Place
+            </span>
           </div>
-          {/* Simple navigation placeholder */}
+          {/* Navigation links */}
           <nav className="flex gap-6 text-sm">
             <a href="#features" className="text-[#1F4E79] hover:text-[#2E8B57]">Features</a>
             <a href="#pricing" className="text-[#1F4E79] hover:text-[#2E8B57]">Pricing</a>
