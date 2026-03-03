@@ -98,9 +98,18 @@ const caseStudies = [
 ];
 
 const blogPosts = [
-  "How to reduce food cost without lowering quality",
-  "5 daily restaurant KPIs that predict margin pressure",
-  "Building a chart of accounts for multi-location operators",
+  {
+    title: "How to reduce food cost without lowering quality",
+    href: "/blog#reduce-food-cost",
+  },
+  {
+    title: "5 daily restaurant KPIs that predict margin pressure",
+    href: "/blog#daily-kpis",
+  },
+  {
+    title: "Building a chart of accounts for multi-location operators",
+    href: "/blog#chart-of-accounts",
+  },
 ];
 
 export default function PricingPage() {
@@ -132,10 +141,16 @@ export default function PricingPage() {
             <span className="text-sm font-semibold">Financial Mise en Place</span>
           </Link>
           <div className="flex items-center gap-2">
-            <Link href="/" className="rounded-md px-3 py-2 text-sm font-semibold transition hover:bg-white/10">
-              Back to Home
+            <Link
+              href="/pricing"
+              className="rounded-md border border-white/30 bg-white/10 px-3 py-2 text-sm font-semibold backdrop-blur-sm transition hover:bg-white/20"
+            >
+              Pricing
             </Link>
-            <Link href="#demo" className="rounded-md bg-white px-4 py-2 text-sm font-bold text-[#081a3a]">
+            <Link
+              href="#demo"
+              className="rounded-md border border-white/30 bg-white/10 px-4 py-2 text-sm font-bold backdrop-blur-sm transition hover:bg-white/20"
+            >
               Book a Demo
             </Link>
           </div>
@@ -306,7 +321,32 @@ export default function PricingPage() {
                 30-minute walkthrough.
               </p>
             </div>
-            <Button className="bg-[#081a3a] text-white hover:bg-[#112755]">Schedule Demo</Button>
+            <div className="flex flex-wrap gap-3">
+              <Button asChild className="bg-[#081a3a] text-white hover:bg-[#112755]">
+                <Link href="https://calendly.com" target="_blank" rel="noreferrer">
+                  Open Calendar
+                </Link>
+              </Button>
+              <Button asChild variant="outline" className="border-[#081a3a] text-[#081a3a]">
+                <Link href="#calendar-setup">Setup Guide</Link>
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      </section>
+
+      <section id="calendar-setup" className="mx-auto w-full max-w-6xl px-6 py-10">
+        <Card className="bg-white">
+          <CardContent className="p-6">
+            <h2 className="text-2xl font-bold">How to Add Your Demo Calendar</h2>
+            <ol className="mt-4 list-decimal space-y-2 pl-5 text-slate-700">
+              <li>Create a booking page in Calendly, Cal.com, or Google Appointment Schedule.</li>
+              <li>Replace the `https://calendly.com` link with your real booking URL.</li>
+              <li>
+                For inline booking, embed your calendar in this section with an iframe after publishing your
+                scheduling page.
+              </li>
+            </ol>
           </CardContent>
         </Card>
       </section>
@@ -317,9 +357,11 @@ export default function PricingPage() {
         </h2>
         <div className="mt-6 grid gap-4 md:grid-cols-3">
           {blogPosts.map((post) => (
-            <Card key={post} className="bg-white">
+            <Card key={post.title} className="bg-white">
               <CardContent className="p-6">
-                <p className="font-semibold">{post}</p>
+                <Link href={post.href} className="font-semibold text-[#081a3a] hover:underline">
+                  {post.title}
+                </Link>
                 <p className="mt-2 text-sm text-slate-600">Educational guide for restaurant finance teams.</p>
               </CardContent>
             </Card>
