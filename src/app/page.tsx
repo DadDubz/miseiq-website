@@ -12,7 +12,7 @@ const navItems = [
 export default function Home() {
   return (
     <main className="flex min-h-screen w-full flex-col items-center bg-[#e8eaee] text-[#081a3a]">
-      <header className="w-full border-b border-[#1b2a4a] bg-[#081a3a] py-4 text-white">
+      <header className="sticky top-0 z-10 w-full border-b border-[#1b2a4a] bg-[#081a3a] py-4 text-white">
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6">
           <Link href="#top" className="flex flex-col leading-tight">
             <span className="font-serif text-5xl tracking-wide text-[#d5b15b]">MiseIQ</span>
@@ -170,6 +170,19 @@ export default function Home() {
       </section>
 
       <section id="login" className="mx-auto w-full max-w-4xl px-6 py-16 text-center">
+        <h2 className="mb-6 text-3xl font-bold text-[#081a3a]">
+          <span className="border-l-4 border-[#c9a646] pl-4">Log In to Your Dashboard</span>
+        </h2>
+        <p className="mx-auto max-w-3xl text-slate-700">
+          Already using MiseIQ? Jump back into your dashboard to review alerts, sales trends, and today’s
+          intelligence briefing.
+        </p>
+        <Button asChild className="mt-8 bg-[#081a3a] text-white hover:bg-[#112755]">
+          <Link href="#top">Go to Top</Link>
+        </Button>
+      </section>
+
+      <section className="mx-auto w-full max-w-4xl px-6 py-16 text-center">
         <h2 className="mb-6 text-3xl font-bold text-[#081a3a]">
           <span className="border-l-4 border-[#c9a646] pl-4">What’s Next for MiseIQ</span>
         </h2>
