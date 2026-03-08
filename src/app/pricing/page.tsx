@@ -148,7 +148,7 @@ export default function PricingPage() {
               Pricing
             </Link>
             <Link
-              href="/demo"
+              href="#demo"
               className="rounded-md border border-white/30 bg-white/10 px-4 py-2 text-sm font-bold backdrop-blur-sm transition hover:bg-white/20"
             >
               Book a Demo
@@ -311,6 +311,45 @@ export default function PricingPage() {
         </Card>
       </section>
 
+            <section id="demo" className="mx-auto w-full max-w-6xl px-6 py-10">
+        <Card className="border-2 border-[#c9a646] bg-white">
+          <CardContent className="flex flex-col gap-6 p-6 md:flex-row md:items-center md:justify-between">
+            <div>
+              <h2 className="text-3xl font-bold">Book a Personalized Demo</h2>
+              <p className="mt-2 max-w-2xl text-slate-700">
+                See how MiseIQ handles your real menu mix, inventory flow, and labor profile in a guided
+                30-minute walkthrough.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <Button asChild className="bg-[#081a3a] text-white hover:bg-[#112755]">
+                <Link href="https://calendly.com" target="_blank" rel="noreferrer">
+                  Open Calendar
+                </Link>
+              </Button>
+              <Button asChild variant="outline" className="border-[#081a3a] text-[#081a3a]">
+                <Link href="#calendar-setup">Setup Guide</Link>
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      </section>
+
+      <section id="calendar-setup" className="mx-auto w-full max-w-6xl px-6 py-10">
+        <Card className="bg-white">
+          <CardContent className="p-6">
+            <h2 className="text-2xl font-bold">How to Add Your Demo Calendar</h2>
+            <ol className="mt-4 list-decimal space-y-2 pl-5 text-slate-700">
+              <li>Create a booking page in Calendly, Cal.com, or Google Appointment Schedule.</li>
+              <li>Replace the `https://calendly.com` link with your real booking URL.</li>
+              <li>
+                For inline booking, embed your calendar in this section with an iframe after publishing your
+                scheduling page.
+              </li>
+            </ol>
+          </CardContent>
+        </Card>
+      </section>
 
       <section className="mx-auto w-full max-w-6xl px-6 py-10 pb-20">
         <h2 className="text-3xl font-bold">

@@ -2,9 +2,6 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
-const demoBookingUrl = "https://calendly.com";
-const demoEmail = "demo@miseiq.com";
-
 export default function DemoPage() {
   return (
     <main className="min-h-screen bg-[#e8eaee] text-[#081a3a]">
@@ -44,24 +41,15 @@ export default function DemoPage() {
             <div>
               <h2 className="text-2xl font-bold">Choose a demo time</h2>
               <p className="mt-2 max-w-xl text-slate-700">
-                Use your booking calendar below. If calendar access fails for any reason, use the direct email
-                option and we&apos;ll schedule manually.
+                Click below to open your booking calendar. Replace this placeholder link with your real
+                Calendly or Cal.com URL when ready.
               </p>
             </div>
-            <div className="flex flex-wrap gap-3">
-              <Button asChild className="bg-[#081a3a] text-white hover:bg-[#112755]">
-                <Link href={demoBookingUrl} target="_blank" rel="noreferrer">
-                  Open Calendar
-                </Link>
-              </Button>
-              <Button asChild variant="outline" className="border-[#081a3a] text-[#081a3a]">
-                <Link
-                  href={`mailto:${demoEmail}?subject=${encodeURIComponent("MiseIQ demo request")}&body=${encodeURIComponent("Hi MiseIQ team,%0D%0A%0D%0AI would like to schedule a demo.%0D%0ACompany:%0D%0ALocations:%0D%0APreferred day/time:%0D%0A%0D%0AThanks!")}`}
-                >
-                  Email to Book
-                </Link>
-              </Button>
-            </div>
+            <Button asChild className="bg-[#081a3a] text-white hover:bg-[#112755]">
+              <Link href="https://calendly.com" target="_blank" rel="noreferrer">
+                Open Calendar
+              </Link>
+            </Button>
           </CardContent>
         </Card>
       </section>
@@ -72,8 +60,7 @@ export default function DemoPage() {
             <h2 className="text-2xl font-bold">How to connect your real calendar</h2>
             <ol className="mt-4 list-decimal space-y-2 pl-5 text-slate-700">
               <li>Create your booking page in Calendly, Cal.com, or Google Appointment Schedule.</li>
-              <li>Replace the `demoBookingUrl` constant in this file with your real booking URL.</li>
-              <li>Set your real team inbox in `demoEmail` for a reliable fallback.</li>
+              <li>Replace the `https://calendly.com` link in this page with your real booking URL.</li>
               <li>If you want inline scheduling, embed your provider&apos;s iframe in this section.</li>
             </ol>
           </CardContent>
