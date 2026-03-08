@@ -148,11 +148,7 @@ export default function PricingPage() {
               Pricing
             </Link>
             <Link
-<<<<<<< codex/update-website-design-for-branding-y6eyud
-              href="/demo"
-=======
               href="#demo"
->>>>>>> main
               className="rounded-md border border-white/30 bg-white/10 px-4 py-2 text-sm font-bold backdrop-blur-sm transition hover:bg-white/20"
             >
               Book a Demo
@@ -315,9 +311,7 @@ export default function PricingPage() {
         </Card>
       </section>
 
-<<<<<<< codex/update-website-design-for-branding-y6eyud
-=======
-      <section id="demo" className="mx-auto w-full max-w-6xl px-6 py-10">
+            <section id="demo" className="mx-auto w-full max-w-6xl px-6 py-10">
         <Card className="border-2 border-[#c9a646] bg-white">
           <CardContent className="flex flex-col gap-6 p-6 md:flex-row md:items-center md:justify-between">
             <div>
@@ -356,7 +350,6 @@ export default function PricingPage() {
           </CardContent>
         </Card>
       </section>
->>>>>>> main
 
       <section className="mx-auto w-full max-w-6xl px-6 py-10 pb-20">
         <h2 className="text-3xl font-bold">
