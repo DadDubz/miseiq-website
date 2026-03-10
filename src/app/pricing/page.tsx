@@ -136,11 +136,23 @@ export default function PricingPage() {
           month, these plans are designed to deliver a clear return.
         </p>
 
-        <div className="mt-6 rounded-lg border border-[#081a3a]/20 bg-white p-5 text-center text-slate-700">
-          <p className="text-lg font-semibold text-[#081a3a]">Simple value check</p>
-          <p className="mt-2">If you save $500/month and pay $199/month, that is roughly $301/month in net upside.</p>
-          <p>If you save $500/month and pay $379/month, that is still about $121/month in net upside per location.</p>
-        </div>
+             <section className="mx-auto w-full max-w-6xl px-6 py-16">
+        <h1 className="text-center text-5xl font-bold">
+          <span className="border-l-4 border-[#c9a646] pl-4">Pricing built for real restaurant workflows</span>
+        </h1>
+        <p className="mx-auto mt-4 max-w-3xl text-center text-lg text-slate-700">
+          From independent operators to multi-unit brands, choose a plan that helps your team protect
+          margin and execute faster with less noise.
+          Straightforward monthly pricing that stays affordable while supporting high-impact operational outcomes.
+        </p>
+        <p className="mx-auto mt-2 max-w-3xl text-center text-sm font-medium text-[#112755]">
+          Current rates: Operator $100/month and Multi-Unit $300/month.
+        </p>
+
+        <p className="mt-6 text-center text-sm text-slate-600">
+          Optional white-glove onboarding is available for a one-time <strong>${optionalSetupFee}</strong> fee to
+          professionally configure recipes, menu items, and essential account setup.
+        </p>
 
         <div className="mx-auto mt-8 flex max-w-md items-center justify-center rounded-lg border border-[#081a3a]/20 bg-white p-2">
           <button
