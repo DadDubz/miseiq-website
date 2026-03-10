@@ -38,21 +38,32 @@ export default function DemoPage() {
           fallback button to open it in a new tab.
         </p>
 
-        <Card className="mx-auto mt-10 border-2 border-[#c9a646] bg-white">
-          <CardContent className="p-4 md:p-6">
-            <iframe
-              src={bookingUrl}
-              title="MiseIQ demo booking calendar"
-              className="h-[950px] w-full rounded-md border border-slate-300"
-              loading="lazy"
-            />
-            <div className="mt-4 flex justify-center">
-              <Button asChild className="bg-[#081a3a] text-white hover:bg-[#112755]">
-                <Link href={bookingUrl} target="_blank" rel="noreferrer">
-                  Open Calendar in New Tab
-                </Link>
-              </Button>
+        <Card className="mx-auto mt-10 max-w-4xl border-2 border-[#c9a646] bg-white">
+          <CardContent className="flex flex-col gap-6 p-8 md:flex-row md:items-center md:justify-between">
+            <div>
+              <h2 className="text-2xl font-bold">Choose a demo time</h2>
+              <p className="mt-2 max-w-xl text-slate-700">
+                Click below to open the live MiseIQ booking calendar on SimplyBook.
+              </p>
             </div>
+            <Button asChild className="bg-[#081a3a] text-white hover:bg-[#112755]">
+              <Link href="https://miseiq.simplybook.me/v2/" target="_blank" rel="noreferrer">
+                Open Calendar
+              </Link>
+            </Button>
+          </CardContent>
+        </Card>
+      </section>
+
+      <section className="mx-auto w-full max-w-5xl px-6 pb-20">
+        <Card className="bg-white">
+          <CardContent className="p-8">
+            <h2 className="text-2xl font-bold">Booking setup notes</h2>
+            <ol className="mt-4 list-decimal space-y-2 pl-5 text-slate-700">
+              <li>Current booking URL: `https://miseiq.simplybook.me/v2/`.</li>
+              <li>Update the link in this page if your booking URL changes.</li>
+              <li>Optional: embed an inline SimplyBook widget on this page.</li>
+            </ol>
           </CardContent>
         </Card>
       </section>

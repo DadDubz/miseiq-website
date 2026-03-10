@@ -1,4 +1,4 @@
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { blogPosts } from "@/lib/blog-posts";
@@ -42,13 +42,7 @@ export default function BlogPage() {
         {blogPosts.map((post) => (
           <Link key={post.slug} href={`/blog/${post.slug}`}>
             <Card className="h-full border border-slate-300 bg-white transition hover:-translate-y-1 hover:shadow-lg">
-              <Image
-                src={post.imageUrl}
-                alt={post.imageAlt}
-                width={1200}
-                height={600}
-                className="h-52 w-full rounded-t-lg object-cover"
-              />
+              <img src={post.imageUrl} alt={post.imageAlt} className="h-52 w-full rounded-t-lg object-cover" />
               <CardContent className="p-6">
                 <p className="text-sm font-medium text-[#112755]">{post.readTime}</p>
                 <h2 className="mt-1 text-2xl font-bold">{post.title}</h2>

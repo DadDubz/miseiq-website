@@ -3,7 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const navItems = [
-  { label: "Platform + Integrations", href: "#platform" },
+  { label: "Platform", href: "#platform" },
+  { label: "Integrations", href: "#integrations" },
   { label: "Pricing", href: "/pricing" },
   { label: "Book a Demo", href: "/demo" },
 ];
@@ -86,9 +87,7 @@ export default function Home() {
       </header>
 
       <section id="top" className="mx-auto w-full max-w-6xl px-6 py-18 text-center">
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#112755]">
-          AI-assisted restaurant operations platform
-        </p>
+        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#112755]">AI-assisted restaurant operations platform</p>
         <h1 className="mt-4 text-5xl font-extrabold tracking-tight">
           One command center for <span className="text-[#112755]">margin, labor, and daily risk</span>
         </h1>
@@ -101,23 +100,17 @@ export default function Home() {
           <Button asChild className="bg-[#081a3a] px-6 py-3 text-lg text-white hover:bg-[#112755]">
             <Link href="/demo">Book a Personalized Demo</Link>
           </Button>
-          <Button
-            asChild
-            variant="outline"
-            className="border-[#081a3a] px-6 py-3 text-lg text-[#081a3a] hover:bg-[#081a3a]/10"
-          >
+          <Button asChild variant="outline" className="border-[#081a3a] px-6 py-3 text-lg text-[#081a3a] hover:bg-[#081a3a]/10">
             <Link href="/pricing">View Plans</Link>
           </Button>
         </div>
       </section>
 
-      <section id="platform" className="mx-auto w-full max-w-6xl px-6 pb-18">
+      <section id="platform" className="mx-auto w-full max-w-6xl px-6 pb-14">
         <h2 className="text-3xl font-bold">
-          <span className="border-l-4 border-[#c9a646] pl-4">Platform + Integrations</span>
+          <span className="border-l-4 border-[#c9a646] pl-4">Built around a clean executive workflow</span>
         </h2>
-
-        <h3 className="mt-8 text-2xl font-bold">Executive workflow</h3>
-        <div className="mt-4 grid gap-4 md:grid-cols-2">
+        <div className="mt-6 grid gap-4 md:grid-cols-2">
           {workflowSections.map((section) => (
             <Card key={section.title} className="bg-white">
               <CardHeader className="pb-2">
@@ -128,26 +121,33 @@ export default function Home() {
           ))}
         </div>
 
-        <h3 className="mt-10 text-2xl font-bold">Key capabilities</h3>
-        <ul className="mt-4 grid gap-3 text-slate-700 md:grid-cols-2">
+      <section className="mx-auto w-full max-w-6xl px-6 pb-14">
+        <h2 className="text-3xl font-bold">
+          <span className="border-l-4 border-[#c9a646] pl-4">Key capabilities that reduce operating volatility</span>
+        </h2>
+        <ul className="mt-6 grid gap-3 text-slate-700 md:grid-cols-2">
           {capabilities.map((item) => (
             <li key={item} className="rounded-lg border border-slate-300 bg-white p-4">
               {item}
             </li>
           ))}
         </ul>
+      </section>
 
-        <h3 className="mt-10 text-2xl font-bold">Integrations, reliability, and security</h3>
-        <div className="mt-4 grid gap-4 md:grid-cols-3">
+      <section id="integrations" className="mx-auto w-full max-w-6xl px-6 pb-18">
+        <h2 className="text-3xl font-bold">
+          <span className="border-l-4 border-[#c9a646] pl-4">Integrations, security, and deployment readiness</span>
+        </h2>
+        <div className="mt-6 grid gap-4 md:grid-cols-3">
           {integrationGroups.map((group) => (
             <Card key={group.title} className="bg-white">
               <CardHeader className="pb-2">
                 <CardTitle>{group.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <ul className="list-disc space-y-2 pl-5 text-slate-700">
+                <ul className="space-y-2 text-slate-700">
                   {group.items.map((item) => (
-                    <li key={item}>{item}</li>
+                    <li key={item}>• {item}</li>
                   ))}
                 </ul>
               </CardContent>
