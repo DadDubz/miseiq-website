@@ -58,24 +58,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <p key={paragraph}>{paragraph}</p>
           ))}
         </div>
-
-        <section className="mt-10 rounded-lg border border-slate-300 bg-white p-6">
-          <h2 className="text-2xl font-bold">References</h2>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-700">
-            {post.references.map((reference) => (
-              <li key={reference.url}>
-                <a
-                  href={reference.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="font-medium text-[#112755] underline decoration-[#c9a646] underline-offset-4"
-                >
-                  {reference.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </section>
       </article>
     </main>
   );
