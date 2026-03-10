@@ -10,8 +10,8 @@ type BillingCycle = "monthly" | "yearly";
 const plans = [
   {
     name: "Operator",
-    monthlyPrice: 129,
-    yearlyPrice: 1238,
+    monthlyPrice: 199,
+    yearlyPrice: 1990,
     cadence: "/location",
     description: "For single-location operators who need daily margin control.",
     features: [
@@ -23,8 +23,8 @@ const plans = [
   },
   {
     name: "Multi-Unit",
-    monthlyPrice: 349,
-    yearlyPrice: 3350,
+    monthlyPrice: 379,
+    yearlyPrice: 3790,
     cadence: "/location",
     description: "For growing groups standardizing performance across stores.",
     features: [
@@ -83,8 +83,8 @@ export default function PricingPage() {
   const savingsLabel = useMemo(
     () =>
       billingCycle === "yearly"
-        ? "Yearly billing includes ~20% savings."
-        : "Switch to yearly and save ~20%.",
+        ? "Yearly billing includes ~17% savings (about 2 months free)."
+        : "Switch to yearly and save ~17%.",
     [billingCycle],
   );
 
@@ -97,7 +97,7 @@ export default function PricingPage() {
       return { value: `$${plan.monthlyPrice}`, subtext: `${plan.cadence}/month` };
     }
 
-    return { value: `$${plan.yearlyPrice}`, subtext: `${plan.cadence}/year (2 months free)` };
+    return { value: `$${plan.yearlyPrice}`, subtext: `${plan.cadence}/year` };
   };
 
   return (
@@ -130,9 +130,15 @@ export default function PricingPage() {
           <span className="border-l-4 border-[#c9a646] pl-4">Pricing built for real restaurant workflows</span>
         </h1>
         <p className="mx-auto mt-4 max-w-3xl text-center text-lg text-slate-700">
-          From independent operators to multi-unit brands, choose a plan that helps your team protect
-          margin and execute faster with less noise.
+          Built to be affordable without being &quot;cheap software&quot;: if MiseIQ helps you recover $500+ in margin per
+          month, these plans are designed to deliver a clear return.
         </p>
+
+        <div className="mt-6 rounded-lg border border-[#081a3a]/20 bg-white p-5 text-center text-slate-700">
+          <p className="text-lg font-semibold text-[#081a3a]">Simple value check</p>
+          <p className="mt-2">If you save $500/month and pay $199/month, that is roughly $301/month in net upside.</p>
+          <p>If you save $500/month and pay $379/month, that is still about $121/month in net upside per location.</p>
+        </div>
 
         <div className="mx-auto mt-8 flex max-w-md items-center justify-center rounded-lg border border-[#081a3a]/20 bg-white p-2">
           <button

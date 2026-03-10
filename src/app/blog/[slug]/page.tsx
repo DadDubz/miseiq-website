@@ -58,6 +58,24 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <p key={paragraph}>{paragraph}</p>
           ))}
         </div>
+
+        <section className="mt-10 rounded-lg border border-slate-300 bg-white p-6">
+          <h2 className="text-2xl font-bold">References</h2>
+          <ul className="mt-3 space-y-2 text-slate-700">
+            {post.sources.map((source) => (
+              <li key={source.href}>
+                <a
+                  href={source.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-medium text-[#112755] underline decoration-[#c9a646] underline-offset-4"
+                >
+                  {source.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
       </article>
     </main>
   );
