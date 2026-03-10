@@ -63,6 +63,14 @@ export default function DemoPage() {
                 referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
+
+            <div className="flex justify-center">
+              <Button asChild variant="outline" className="border-[#081a3a] text-[#081a3a] hover:bg-[#081a3a]/10">
+                <Link href={bookingUrl} target="_blank" rel="noreferrer">
+                  Calendar not loading? Open it directly
+                </Link>
+              </Button>
+            </div>
           </CardContent>
         </Card>
       </section>
@@ -72,7 +80,7 @@ export default function DemoPage() {
           <CardContent className="p-8">
             <h2 className="text-2xl font-bold">Booking setup notes</h2>
             <ol className="mt-4 list-decimal space-y-2 pl-5 text-slate-700">
-              <li>Current booking URL: {bookingUrl}</li>
+              <li>Current booking URL: <Link href={bookingUrl} target="_blank" rel="noreferrer" className="underline">{bookingUrl}</Link></li>
               <li>If your booking URL changes, update the `bookingUrl` constant at the top of this page.</li>
               <li>Keep the fallback button so visitors can still book if iframe embedding is blocked.</li>
             </ol>
