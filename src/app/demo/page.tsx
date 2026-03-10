@@ -41,12 +41,11 @@ export default function DemoPage() {
             <div>
               <h2 className="text-2xl font-bold">Choose a demo time</h2>
               <p className="mt-2 max-w-xl text-slate-700">
-                Click below to open your booking calendar. Replace this placeholder link with your real
-                Calendly or Cal.com URL when ready.
+                Click below to open the live MiseIQ booking calendar on SimplyBook.
               </p>
             </div>
             <Button asChild className="bg-[#081a3a] text-white hover:bg-[#112755]">
-              <Link href="https://calendly.com" target="_blank" rel="noreferrer">
+              <Link href="https://miseiq.simplybook.me/v2/" target="_blank" rel="noreferrer">
                 Open Calendar
               </Link>
             </Button>
@@ -57,11 +56,11 @@ export default function DemoPage() {
       <section className="mx-auto w-full max-w-5xl px-6 pb-20">
         <Card className="bg-white">
           <CardContent className="p-8">
-            <h2 className="text-2xl font-bold">How to connect your real calendar</h2>
+            <h2 className="text-2xl font-bold">Booking setup notes</h2>
             <ol className="mt-4 list-decimal space-y-2 pl-5 text-slate-700">
-              <li>Create your booking page in Calendly, Cal.com, or Google Appointment Schedule.</li>
-              <li>Replace the `https://calendly.com` link in this page with your real booking URL.</li>
-              <li>If you want inline scheduling, embed your provider&apos;s iframe in this section.</li>
+              <li>Current booking URL: `https://miseiq.simplybook.me/v2/`.</li>
+              <li>Update the link in this page if your booking URL changes.</li>
+              <li>Optional: embed an inline SimplyBook widget on this page.</li>
             </ol>
           </CardContent>
         </Card>
