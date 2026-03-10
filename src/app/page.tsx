@@ -87,7 +87,9 @@ export default function Home() {
       </header>
 
       <section id="top" className="mx-auto w-full max-w-6xl px-6 py-18 text-center">
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#112755]">AI-assisted restaurant operations platform</p>
+        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#112755]">
+          AI-assisted restaurant operations platform
+        </p>
         <h1 className="mt-4 text-5xl font-extrabold tracking-tight">
           One command center for <span className="text-[#112755]">margin, labor, and daily risk</span>
         </h1>
@@ -100,7 +102,11 @@ export default function Home() {
           <Button asChild className="bg-[#081a3a] px-6 py-3 text-lg text-white hover:bg-[#112755]">
             <Link href="/demo">Book a Personalized Demo</Link>
           </Button>
-          <Button asChild variant="outline" className="border-[#081a3a] px-6 py-3 text-lg text-[#081a3a] hover:bg-[#081a3a]/10">
+          <Button
+            asChild
+            variant="outline"
+            className="border-[#081a3a] px-6 py-3 text-lg text-[#081a3a] hover:bg-[#081a3a]/10"
+          >
             <Link href="/pricing">View Plans</Link>
           </Button>
         </div>
@@ -120,6 +126,7 @@ export default function Home() {
             </Card>
           ))}
         </div>
+      </section>
 
       <section className="mx-auto w-full max-w-6xl px-6 pb-14">
         <h2 className="text-3xl font-bold">
@@ -157,3 +164,4 @@ export default function Home() {
       </section>
     </main>
   );
+}
