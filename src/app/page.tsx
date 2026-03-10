@@ -120,7 +120,6 @@ export default function Home() {
             </Card>
           ))}
         </div>
-      </section>
 
       <section className="mx-auto w-full max-w-6xl px-6 pb-14">
         <h2 className="text-3xl font-bold">
