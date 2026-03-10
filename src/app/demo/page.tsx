@@ -2,6 +2,8 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
+const bookingUrl = "https://miseiq.simplybook.me/v2/";
+
 export default function DemoPage() {
   return (
     <main className="min-h-screen bg-[#e8eaee] text-[#081a3a]">
@@ -27,13 +29,13 @@ export default function DemoPage() {
         </div>
       </header>
 
-      <section className="mx-auto w-full max-w-5xl px-6 py-16">
+      <section className="mx-auto w-full max-w-6xl px-6 py-16">
         <h1 className="text-center text-5xl font-bold">
           <span className="border-l-4 border-[#c9a646] pl-4">Book a Personalized Demo</span>
         </h1>
         <p className="mx-auto mt-4 max-w-3xl text-center text-lg text-slate-700">
-          We&apos;ll walk through your actual restaurant workflows, margins, and reporting needs in a focused
-          30-minute session.
+          Choose a time directly below. If the embedded calendar doesn&apos;t load in your browser, use the
+          fallback button to open it in a new tab.
         </p>
 
         <Card className="mx-auto mt-10 max-w-4xl border-2 border-[#c9a646] bg-white">

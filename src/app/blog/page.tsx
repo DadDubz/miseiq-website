@@ -1,46 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
-
-const posts = [
-  {
-    slug: "reduce-food-cost",
-    title: "How to reduce food cost without lowering quality",
-    summary:
-      "A practical framework for controlling ingredient spend while protecting guest experience and menu consistency.",
-    readTime: "6 min read",
-    content: [
-      "Start with weekly recipe costing using real invoice data, not list prices. Restaurants lose margin when legacy recipe cards do not reflect current vendor pricing.",
-      "Pair your recipe costing with a variance routine: compare theoretical usage to actual purchases and waste. The largest gap each week is usually the fastest win.",
-      "Use menu contribution margin to decide where to optimize. Raise price, adjust portion, or swap ingredients only on low-contribution items first.",
-    ],
-  },
-  {
-    slug: "daily-kpis",
-    title: "5 daily restaurant KPIs that predict margin pressure",
-    summary:
-      "Track these daily indicators to catch financial issues before month-end closes and accounting reports arrive.",
-    readTime: "5 min read",
-    content: [
-      "1) Prime cost percent (food + labor) by daypart. This is your core margin health signal.",
-      "2) Comps and voids as a percent of net sales. Rising rates often point to process drift.",
-      "3) Purchase price drift on top 20 ingredients. Small changes compound quickly.",
-      "4) Overtime and schedule variance by manager. Labor misses are easiest to fix when seen daily.",
-      "5) Cash conversion lag between invoices and reconciliations. Delays create hidden risk.",
-    ],
-  },
-  {
-    slug: "chart-of-accounts",
-    title: "Building a chart of accounts for multi-location operators",
-    summary:
-      "Structure your chart of accounts so every location reports consistently and leadership gets clean rollups.",
-    readTime: "7 min read",
-    content: [
-      "Use a shared parent-child account structure so every location posts to the same categories.",
-      "Separate controllable costs from fixed costs to make operating decisions faster at the store level.",
-      "Map POS, payroll, and invoice feeds to canonical account codes and enforce that mapping across locations.",
-    ],
-  },
-];
+import { blogPosts } from "@/lib/blog-posts";
 
 export default function BlogPage() {
   return (
@@ -72,24 +33,24 @@ export default function BlogPage() {
           <span className="border-l-4 border-[#c9a646] pl-4">MiseIQ Blog</span>
         </h1>
         <p className="mt-4 max-w-3xl text-lg text-slate-700">
-          Practical operating and finance playbooks for restaurant owners, GMs, and multi-unit leadership teams.
+          Insights for restaurant owners and operators on margins, labor control, integrations, and smarter
+          day-to-day execution.
         </p>
       </section>
 
-      <section className="mx-auto grid w-full max-w-6xl gap-6 px-6 pb-20">
-        {posts.map((post) => (
-          <Card key={post.slug} id={post.slug} className="bg-white">
-            <CardContent className="p-6">
-              <p className="text-sm font-medium text-[#112755]">{post.readTime}</p>
-              <h2 className="mt-1 text-2xl font-bold">{post.title}</h2>
-              <p className="mt-2 text-slate-700">{post.summary}</p>
-              <div className="mt-4 space-y-3 text-slate-700">
-                {post.content.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
+      <section className="mx-auto grid w-full max-w-6xl gap-6 px-6 pb-20 md:grid-cols-2">
+        {blogPosts.map((post) => (
+          <Link key={post.slug} href={`/blog/${post.slug}`}>
+            <Card className="h-full border border-slate-300 bg-white transition hover:-translate-y-1 hover:shadow-lg">
+              <img src={post.imageUrl} alt={post.imageAlt} className="h-52 w-full rounded-t-lg object-cover" />
+              <CardContent className="p-6">
+                <p className="text-sm font-medium text-[#112755]">{post.readTime}</p>
+                <h2 className="mt-1 text-2xl font-bold">{post.title}</h2>
+                <p className="mt-3 text-slate-700">{post.summary}</p>
+                <p className="mt-4 text-sm font-semibold text-[#112755]">Read article →</p>
+              </CardContent>
+            </Card>
+          </Link>
         ))}
       </section>
     </main>
