@@ -71,6 +71,11 @@ export default function DemoPage() {
                 </Link>
               </Button>
             </div>
+            <Button asChild className="bg-[#081a3a] text-white hover:bg-[#112755]">
+              <Link href={bookingUrl} target="_blank" rel="noreferrer">
+                Open Calendar
+              </Link>
+            </Button>
           </CardContent>
         </Card>
       </section>
@@ -80,9 +85,9 @@ export default function DemoPage() {
           <CardContent className="p-8">
             <h2 className="text-2xl font-bold">Booking setup notes</h2>
             <ol className="mt-4 list-decimal space-y-2 pl-5 text-slate-700">
-              <li>Current booking URL: <Link href={bookingUrl} target="_blank" rel="noreferrer" className="underline">{bookingUrl}</Link></li>
-              <li>If your booking URL changes, update the `bookingUrl` constant at the top of this page.</li>
-              <li>Keep the fallback button so visitors can still book if iframe embedding is blocked.</li>
+              <li>Current booking URL: `{bookingUrl}`.</li>
+              <li>Update the link in this page if your booking URL changes.</li>
+              <li>Optional: embed an inline SimplyBook widget on this page.</li>
             </ol>
           </CardContent>
         </Card>
