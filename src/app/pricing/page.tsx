@@ -7,11 +7,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 type BillingCycle = "monthly" | "yearly";
 
+const optionalSetupFee = 100;
+
 const plans = [
   {
     name: "Operator",
-    monthlyPrice: 129,
-    yearlyPrice: 1238,
+    monthlyPrice: 100,
+    yearlyPrice: 1000,
     cadence: "/location",
     description: "For single-location operators who need daily margin control.",
     features: [
@@ -23,8 +25,8 @@ const plans = [
   },
   {
     name: "Multi-Unit",
-    monthlyPrice: 349,
-    yearlyPrice: 3350,
+    monthlyPrice: 300,
+    yearlyPrice: 3000,
     cadence: "/location",
     description: "For growing groups standardizing performance across stores.",
     features: [
@@ -83,8 +85,8 @@ export default function PricingPage() {
   const savingsLabel = useMemo(
     () =>
       billingCycle === "yearly"
-        ? "Yearly billing includes ~20% savings."
-        : "Switch to yearly and save ~20%.",
+        ? "Yearly billing includes ~17% savings (about 2 months free)."
+        : "Switch to yearly and save ~17%.",
     [billingCycle],
   );
 
@@ -97,7 +99,7 @@ export default function PricingPage() {
       return { value: `$${plan.monthlyPrice}`, subtext: `${plan.cadence}/month` };
     }
 
-    return { value: `$${plan.yearlyPrice}`, subtext: `${plan.cadence}/year (2 months free)` };
+    return { value: `$${plan.yearlyPrice}`, subtext: `${plan.cadence}/year` };
   };
 
   return (
@@ -130,8 +132,12 @@ export default function PricingPage() {
           <span className="border-l-4 border-[#c9a646] pl-4">Pricing built for real restaurant workflows</span>
         </h1>
         <p className="mx-auto mt-4 max-w-3xl text-center text-lg text-slate-700">
-          From independent operators to multi-unit brands, choose a plan that helps your team protect
-          margin and execute faster with less noise.
+          Straightforward monthly pricing that stays affordable while supporting high-impact operational outcomes.
+        </p>
+
+        <p className="mt-6 text-center text-sm text-slate-600">
+          Optional white-glove onboarding is available for a one-time <strong>${optionalSetupFee}</strong> fee to
+          professionally configure recipes, menu items, and essential account setup.
         </p>
 
         <div className="mx-auto mt-8 flex max-w-md items-center justify-center rounded-lg border border-[#081a3a]/20 bg-white p-2">
@@ -171,6 +177,9 @@ export default function PricingPage() {
                 <p className="text-slate-700">{plan.description}</p>
                 <p className="mt-4 text-4xl font-bold text-[#081a3a]">{price.value}</p>
                 <p className="text-sm text-slate-600">{price.subtext}</p>
+                <p className="mt-1 text-sm font-medium text-[#112755]">
+                  Optional white-glove onboarding: +${optionalSetupFee} one-time
+                </p>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3 text-slate-700">
