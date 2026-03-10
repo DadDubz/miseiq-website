@@ -47,7 +47,7 @@ export default function DemoPage() {
               </p>
             </div>
             <Button asChild className="bg-[#081a3a] text-white hover:bg-[#112755]">
-              <Link href="https://miseiq.simplybook.me/v2/" target="_blank" rel="noreferrer">
+              <Link href={bookingUrl} target="_blank" rel="noreferrer">
                 Open Calendar
               </Link>
             </Button>
@@ -60,7 +60,7 @@ export default function DemoPage() {
           <CardContent className="p-8">
             <h2 className="text-2xl font-bold">Booking setup notes</h2>
             <ol className="mt-4 list-decimal space-y-2 pl-5 text-slate-700">
-              <li>Current booking URL: `https://miseiq.simplybook.me/v2/`.</li>
+              <li>Current booking URL: `{bookingUrl}`.</li>
               <li>Update the link in this page if your booking URL changes.</li>
               <li>Optional: embed an inline SimplyBook widget on this page.</li>
             </ol>
