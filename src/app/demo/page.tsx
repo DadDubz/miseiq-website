@@ -34,23 +34,35 @@ export default function DemoPage() {
           <span className="border-l-4 border-[#c9a646] pl-4">Book a Personalized Demo</span>
         </h1>
         <p className="mx-auto mt-4 max-w-3xl text-center text-lg text-slate-700">
-          Choose a time directly below. If the embedded calendar doesn&apos;t load in your browser, use the
-          fallback button to open it in a new tab.
+          You can schedule directly on this page. If the calendar has trouble loading, use the fallback button to open
+          it in a new tab.
         </p>
 
-        <Card className="mx-auto mt-10 max-w-4xl border-2 border-[#c9a646] bg-white">
-          <CardContent className="flex flex-col gap-6 p-8 md:flex-row md:items-center md:justify-between">
-            <div>
-              <h2 className="text-2xl font-bold">Choose a demo time</h2>
-              <p className="mt-2 max-w-xl text-slate-700">
-                Click below to open the live MiseIQ booking calendar on SimplyBook.
-              </p>
+        <Card className="mx-auto mt-10 max-w-5xl border-2 border-[#c9a646] bg-white">
+          <CardContent className="space-y-6 p-6 md:p-8">
+            <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+              <div>
+                <h2 className="text-2xl font-bold">Choose a demo time</h2>
+                <p className="mt-2 max-w-xl text-slate-700">
+                  Use the live SimplyBook calendar below to reserve your preferred time.
+                </p>
+              </div>
+              <Button asChild className="bg-[#081a3a] text-white hover:bg-[#112755]">
+                <Link href={bookingUrl} target="_blank" rel="noreferrer">
+                  Open Calendar in New Tab
+                </Link>
+              </Button>
             </div>
-            <Button asChild className="bg-[#081a3a] text-white hover:bg-[#112755]">
-              <Link href="https://miseiq.simplybook.me/v2/" target="_blank" rel="noreferrer">
-                Open Calendar
-              </Link>
-            </Button>
+
+            <div className="overflow-hidden rounded-lg border border-slate-300 bg-slate-50">
+              <iframe
+                title="MiseIQ Booking Calendar"
+                src={bookingUrl}
+                className="h-[760px] w-full"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
           </CardContent>
         </Card>
       </section>
@@ -60,9 +72,9 @@ export default function DemoPage() {
           <CardContent className="p-8">
             <h2 className="text-2xl font-bold">Booking setup notes</h2>
             <ol className="mt-4 list-decimal space-y-2 pl-5 text-slate-700">
-              <li>Current booking URL: `https://miseiq.simplybook.me/v2/`.</li>
-              <li>Update the link in this page if your booking URL changes.</li>
-              <li>Optional: embed an inline SimplyBook widget on this page.</li>
+              <li>Current booking URL: {bookingUrl}</li>
+              <li>If your booking URL changes, update the `bookingUrl` constant at the top of this page.</li>
+              <li>Keep the fallback button so visitors can still book if iframe embedding is blocked.</li>
             </ol>
           </CardContent>
         </Card>
