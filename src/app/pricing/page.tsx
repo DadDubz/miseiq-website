@@ -7,6 +7,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 type BillingCycle = "monthly" | "yearly";
 
+const optionalSetupFee = 100;
+
 const plans = [
   {
     name: "Operator",
@@ -177,6 +179,9 @@ export default function PricingPage() {
                 <p className="text-slate-700">{plan.description}</p>
                 <p className="mt-4 text-4xl font-bold text-[#081a3a]">{price.value}</p>
                 <p className="text-sm text-slate-600">{price.subtext}</p>
+                <p className="mt-1 text-sm font-medium text-[#112755]">
+                  Optional white-glove onboarding: +${optionalSetupFee} one-time
+                </p>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3 text-slate-700">
