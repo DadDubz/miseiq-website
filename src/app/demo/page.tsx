@@ -2,6 +2,8 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
+const bookingUrl = "https://miseiq.simplybook.me/v2/";
+
 export default function DemoPage() {
   return (
     <main className="min-h-screen bg-[#e8eaee] text-[#081a3a]">
@@ -27,42 +29,30 @@ export default function DemoPage() {
         </div>
       </header>
 
-      <section className="mx-auto w-full max-w-5xl px-6 py-16">
+      <section className="mx-auto w-full max-w-6xl px-6 py-16">
         <h1 className="text-center text-5xl font-bold">
           <span className="border-l-4 border-[#c9a646] pl-4">Book a Personalized Demo</span>
         </h1>
         <p className="mx-auto mt-4 max-w-3xl text-center text-lg text-slate-700">
-          We&apos;ll walk through your actual restaurant workflows, margins, and reporting needs in a focused
-          30-minute session.
+          Choose a time directly below. If the embedded calendar doesn&apos;t load in your browser, use the
+          fallback button to open it in a new tab.
         </p>
 
-        <Card className="mx-auto mt-10 max-w-4xl border-2 border-[#c9a646] bg-white">
-          <CardContent className="flex flex-col gap-6 p-8 md:flex-row md:items-center md:justify-between">
-            <div>
-              <h2 className="text-2xl font-bold">Choose a demo time</h2>
-              <p className="mt-2 max-w-xl text-slate-700">
-                Click below to open your booking calendar. Replace this placeholder link with your real
-                Calendly or Cal.com URL when ready.
-              </p>
+        <Card className="mx-auto mt-10 border-2 border-[#c9a646] bg-white">
+          <CardContent className="p-4 md:p-6">
+            <iframe
+              src={bookingUrl}
+              title="MiseIQ demo booking calendar"
+              className="h-[950px] w-full rounded-md border border-slate-300"
+              loading="lazy"
+            />
+            <div className="mt-4 flex justify-center">
+              <Button asChild className="bg-[#081a3a] text-white hover:bg-[#112755]">
+                <Link href={bookingUrl} target="_blank" rel="noreferrer">
+                  Open Calendar in New Tab
+                </Link>
+              </Button>
             </div>
-            <Button asChild className="bg-[#081a3a] text-white hover:bg-[#112755]">
-              <Link href="https://calendly.com" target="_blank" rel="noreferrer">
-                Open Calendar
-              </Link>
-            </Button>
-          </CardContent>
-        </Card>
-      </section>
-
-      <section className="mx-auto w-full max-w-5xl px-6 pb-20">
-        <Card className="bg-white">
-          <CardContent className="p-8">
-            <h2 className="text-2xl font-bold">How to connect your real calendar</h2>
-            <ol className="mt-4 list-decimal space-y-2 pl-5 text-slate-700">
-              <li>Create your booking page in Calendly, Cal.com, or Google Appointment Schedule.</li>
-              <li>Replace the `https://calendly.com` link in this page with your real booking URL.</li>
-              <li>If you want inline scheduling, embed your provider&apos;s iframe in this section.</li>
-            </ol>
           </CardContent>
         </Card>
       </section>
