@@ -96,10 +96,16 @@ export default function PricingPage() {
     }
 
     if (billingCycle === "monthly") {
-      return { value: `$${plan.monthlyPrice}`, subtext: `${plan.cadence}/month` };
+      return {
+        value: `$${plan.monthlyPrice}`,
+        subtext: `${plan.cadence}/month`,
+      };
     }
 
-    return { value: `$${plan.yearlyPrice}`, subtext: `${plan.cadence}/year` };
+    return {
+      value: `$${plan.yearlyPrice}`,
+      subtext: `${plan.cadence}/year`,
+    };
   };
 
   return (
@@ -107,9 +113,14 @@ export default function PricingPage() {
       <header className="sticky top-0 z-10 w-full border-b border-[#1b2a4a] bg-[#081a3a] py-4 text-white">
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6">
           <Link href="/" className="flex flex-col leading-tight">
-            <span className="font-serif text-5xl tracking-wide text-[#d5b15b]">MiseIQ</span>
-            <span className="text-sm font-semibold">Financial Mise en Place</span>
+            <span className="font-serif text-5xl tracking-wide text-[#d5b15b]">
+              MiseIQ
+            </span>
+            <span className="text-sm font-semibold">
+              Financial Mise en Place
+            </span>
           </Link>
+
           <div className="flex items-center gap-2">
             <Link
               href="/blog"
@@ -129,29 +140,26 @@ export default function PricingPage() {
 
       <section className="mx-auto w-full max-w-6xl px-6 py-16">
         <h1 className="text-center text-5xl font-bold">
-          <span className="border-l-4 border-[#c9a646] pl-4">Pricing built for real restaurant workflows</span>
+          <span className="border-l-4 border-[#c9a646] pl-4">
+            Pricing built for real restaurant workflows
+          </span>
         </h1>
+
         <p className="mx-auto mt-4 max-w-3xl text-center text-lg text-slate-700">
-          Built to be affordable without being &quot;cheap software&quot;: if MiseIQ helps you recover $500+ in margin per
-          month, these plans are designed to deliver a clear return.
+          From independent operators to multi-unit brands, choose a plan that
+          helps your team protect margin and execute faster with less noise.
+          Straightforward monthly pricing that stays affordable while supporting
+          high-impact operational outcomes.
         </p>
 
-             <section className="mx-auto w-full max-w-6xl px-6 py-16">
-        <h1 className="text-center text-5xl font-bold">
-          <span className="border-l-4 border-[#c9a646] pl-4">Pricing built for real restaurant workflows</span>
-        </h1>
-        <p className="mx-auto mt-4 max-w-3xl text-center text-lg text-slate-700">
-          From independent operators to multi-unit brands, choose a plan that helps your team protect
-          margin and execute faster with less noise.
-          Straightforward monthly pricing that stays affordable while supporting high-impact operational outcomes.
-        </p>
         <p className="mx-auto mt-2 max-w-3xl text-center text-sm font-medium text-[#112755]">
           Current rates: Operator $100/month and Multi-Unit $300/month.
         </p>
 
         <p className="mt-6 text-center text-sm text-slate-600">
-          Optional white-glove onboarding is available for a one-time <strong>${optionalSetupFee}</strong> fee to
-          professionally configure recipes, menu items, and essential account setup.
+          Optional white-glove onboarding is available for a one-time{" "}
+          <strong>${optionalSetupFee}</strong> fee to professionally configure
+          recipes, menu items, and essential account setup.
         </p>
 
         <div className="mx-auto mt-8 flex max-w-md items-center justify-center rounded-lg border border-[#081a3a]/20 bg-white p-2">
@@ -159,7 +167,9 @@ export default function PricingPage() {
             type="button"
             onClick={() => setBillingCycle("monthly")}
             className={`w-1/2 rounded-md px-4 py-2 text-sm font-semibold ${
-              billingCycle === "monthly" ? "bg-[#081a3a] text-white" : "text-[#081a3a]"
+              billingCycle === "monthly"
+                ? "bg-[#081a3a] text-white"
+                : "text-[#081a3a]"
             }`}
           >
             Monthly
@@ -168,13 +178,18 @@ export default function PricingPage() {
             type="button"
             onClick={() => setBillingCycle("yearly")}
             className={`w-1/2 rounded-md px-4 py-2 text-sm font-semibold ${
-              billingCycle === "yearly" ? "bg-[#081a3a] text-white" : "text-[#081a3a]"
+              billingCycle === "yearly"
+                ? "bg-[#081a3a] text-white"
+                : "text-[#081a3a]"
             }`}
           >
             Yearly
           </button>
         </div>
-        <p className="mt-3 text-center text-sm text-slate-600">{savingsLabel}</p>
+
+        <p className="mt-3 text-center text-sm text-slate-600">
+          {savingsLabel}
+        </p>
       </section>
 
       <section className="mx-auto grid w-full max-w-6xl gap-6 px-6 pb-16 md:grid-cols-3">
@@ -184,17 +199,24 @@ export default function PricingPage() {
           return (
             <Card
               key={plan.name}
-              className={`bg-white ${plan.featured ? "border-2 border-[#c9a646] shadow-lg" : "border border-slate-300"}`}
+              className={`bg-white ${
+                plan.featured
+                  ? "border-2 border-[#c9a646] shadow-lg"
+                  : "border border-slate-300"
+              }`}
             >
               <CardHeader>
                 <CardTitle className="text-2xl">{plan.name}</CardTitle>
                 <p className="text-slate-700">{plan.description}</p>
-                <p className="mt-4 text-4xl font-bold text-[#081a3a]">{price.value}</p>
+                <p className="mt-4 text-4xl font-bold text-[#081a3a]">
+                  {price.value}
+                </p>
                 <p className="text-sm text-slate-600">{price.subtext}</p>
                 <p className="mt-1 text-sm font-medium text-[#112755]">
                   Optional white-glove onboarding: +${optionalSetupFee} one-time
                 </p>
               </CardHeader>
+
               <CardContent>
                 <ul className="space-y-3 text-slate-700">
                   {plan.features.map((feature) => (
@@ -204,8 +226,16 @@ export default function PricingPage() {
                     </li>
                   ))}
                 </ul>
-                <Button asChild className="mt-6 w-full bg-[#081a3a] text-white hover:bg-[#112755]">
-                  <Link href="/demo">{plan.name === "Enterprise" ? "Talk to Sales" : "Start with a Demo"}</Link>
+
+                <Button
+                  asChild
+                  className="mt-6 w-full bg-[#081a3a] text-white hover:bg-[#112755]"
+                >
+                  <Link href="/demo">
+                    {plan.name === "Enterprise"
+                      ? "Talk to Sales"
+                      : "Start with a Demo"}
+                  </Link>
                 </Button>
               </CardContent>
             </Card>
@@ -215,8 +245,11 @@ export default function PricingPage() {
 
       <section className="mx-auto w-full max-w-6xl px-6 pb-20" id="features">
         <h2 className="text-3xl font-bold">
-          <span className="border-l-4 border-[#c9a646] pl-4">What every plan is designed to support</span>
+          <span className="border-l-4 border-[#c9a646] pl-4">
+            What every plan is designed to support
+          </span>
         </h2>
+
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           {platformAreas.map((group) => (
             <Card key={group.title} className="bg-white">
