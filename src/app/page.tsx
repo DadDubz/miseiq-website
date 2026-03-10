@@ -3,8 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const navItems = [
-  { label: "Platform", href: "#platform" },
-  { label: "Integrations", href: "#integrations" },
+  { label: "About", href: "#about" },
   { label: "Pricing", href: "/pricing" },
   { label: "Book a Demo", href: "/demo" },
 ];
@@ -112,11 +111,17 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="platform" className="mx-auto w-full max-w-6xl px-6 pb-14">
+      <section id="about" className="mx-auto w-full max-w-6xl px-6 pb-14">
         <h2 className="text-3xl font-bold">
-          <span className="border-l-4 border-[#c9a646] pl-4">Built around a clean executive workflow</span>
+          <span className="border-l-4 border-[#c9a646] pl-4">About MiseIQ</span>
         </h2>
-        <div className="mt-6 grid gap-4 md:grid-cols-2">
+        <p className="mt-4 max-w-4xl text-lg text-slate-700">
+          MiseIQ combines daily workflow tools and integration reliability in one operating system so leadership,
+          finance, and store teams can act on the same trusted data.
+        </p>
+
+        <h3 className="mt-8 text-2xl font-bold">Executive workflow</h3>
+        <div className="mt-4 grid gap-4 md:grid-cols-2">
           {workflowSections.map((section) => (
             <Card key={section.title} className="bg-white">
               <CardHeader className="pb-2">
@@ -126,26 +131,9 @@ export default function Home() {
             </Card>
           ))}
         </div>
-      </section>
 
-      <section className="mx-auto w-full max-w-6xl px-6 pb-14">
-        <h2 className="text-3xl font-bold">
-          <span className="border-l-4 border-[#c9a646] pl-4">Key capabilities that reduce operating volatility</span>
-        </h2>
-        <ul className="mt-6 grid gap-3 text-slate-700 md:grid-cols-2">
-          {capabilities.map((item) => (
-            <li key={item} className="rounded-lg border border-slate-300 bg-white p-4">
-              {item}
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section id="integrations" className="mx-auto w-full max-w-6xl px-6 pb-18">
-        <h2 className="text-3xl font-bold">
-          <span className="border-l-4 border-[#c9a646] pl-4">Integrations, security, and deployment readiness</span>
-        </h2>
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
+        <h3 className="mt-8 text-2xl font-bold">Connected systems and readiness</h3>
+        <div className="mt-4 grid gap-4 md:grid-cols-3">
           {integrationGroups.map((group) => (
             <Card key={group.title} className="bg-white">
               <CardHeader className="pb-2">
@@ -161,6 +149,19 @@ export default function Home() {
             </Card>
           ))}
         </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-6xl px-6 pb-18">
+        <h2 className="text-3xl font-bold">
+          <span className="border-l-4 border-[#c9a646] pl-4">Key capabilities that reduce operating volatility</span>
+        </h2>
+        <ul className="mt-6 grid gap-3 text-slate-700 md:grid-cols-2">
+          {capabilities.map((item) => (
+            <li key={item} className="rounded-lg border border-slate-300 bg-white p-4">
+              {item}
+            </li>
+          ))}
+        </ul>
       </section>
     </main>
   );
