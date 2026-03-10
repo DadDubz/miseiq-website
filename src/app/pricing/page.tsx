@@ -1,7 +1,6 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,29 +9,29 @@ type BillingCycle = "monthly" | "yearly";
 
 const plans = [
   {
-    name: "Starter",
-    monthlyPrice: 75,
-    yearlyPrice: 720,
+    name: "Operator",
+    monthlyPrice: 129,
+    yearlyPrice: 1238,
     cadence: "/location",
-    description: "Great for single-location operators who need ROI visibility fast.",
+    description: "For single-location operators who need daily margin control.",
     features: [
-      "Inventory and recipe costing dashboard",
-      "POS + invoice ingestion with daily sync",
-      "Daily P&L snapshot and variance alerts",
-      "Email support and guided onboarding",
+      "Executive daily briefing and action queue",
+      "POS + invoice ingestion and sync health monitoring",
+      "Core drift detection for sales, labor, and costs",
+      "Menu margin diagnostics with guided recommendations",
     ],
   },
   {
-    name: "Growth",
-    monthlyPrice: 249,
-    yearlyPrice: 2390,
+    name: "Multi-Unit",
+    monthlyPrice: 349,
+    yearlyPrice: 3350,
     cadence: "/location",
-    description: "Built for multi-unit teams that need tighter control and consistency.",
+    description: "For growing groups standardizing performance across stores.",
     features: [
-      "Everything in Starter",
-      "Multi-location rollups and benchmarking",
-      "Automated food cost drift + labor trend alerts",
-      "Weekly coaching session and priority support",
+      "Everything in Operator",
+      "Cross-location trend analysis and risk scoring",
+      "Workflow ownership tracking by manager and due date",
+      "Scenario lab for pricing and margin decisions",
     ],
     featured: true,
   },
@@ -41,74 +40,40 @@ const plans = [
     monthlyPrice: null,
     yearlyPrice: null,
     cadence: "annual contract",
-    description: "For large groups needing custom integrations, governance, and SLA.",
+    description: "For brands requiring custom rollout, controls, and governance.",
     features: [
-      "Everything in Growth",
-      "Custom API + data warehouse export",
-      "SSO, role policy controls, and audit reporting",
-      "Dedicated success manager and implementation team",
+      "Everything in Multi-Unit",
+      "Custom integration planning and staged migration runbooks",
+      "Advanced tenant-aware controls and deployment support",
+      "Dedicated implementation and success partnership",
     ],
   },
 ];
 
-const featureGroups = [
+const platformAreas = [
   {
-    title: "Inventory + Recipe Costing",
+    title: "Operations Intelligence",
     items: [
-      "Track ingredient price changes in real time",
-      "Compare theoretical vs actual usage and waste",
-      "Monitor menu contribution margin by item",
+      "Automated anomaly detection with root-cause context",
+      "Prioritized alerts with next-best-action suggestions",
+      "Daily risk visibility to reduce operating volatility",
     ],
   },
   {
-    title: "POS + Accounting Integrations",
+    title: "Menu + Margin Tools",
     items: [
-      "Connect Toast, Square, Clover, and Revel POS",
-      "Sync daily summaries into QuickBooks and Xero",
-      "Automate invoice capture and chart-of-accounts mapping",
+      "Item-level margin visibility and opportunity scoring",
+      "Basic and advanced menu item builder experiences",
+      "Scenario modeling before pricing changes go live",
     ],
   },
   {
-    title: "Real-Time P&L + AI Guidance",
+    title: "Integration Ecosystem",
     items: [
-      "Daily, weekly, and monthly P&L reporting",
-      "Labor and comps/voids anomaly detection",
-      "AI recommendations for menu engineering and purchasing",
+      "Square, Clover, QuickBooks, and Xero OAuth workflows",
+      "Support paths for Toast, SkyTab, Restaurant365, Craftable, and MarketMan",
+      "Webhook and reconnect utilities for ongoing sync reliability",
     ],
-  },
-];
-
-const roiHighlights = [
-  "Cut food waste with daily variance visibility",
-  "Reduce labor overruns with shift-level trend alerts",
-  "Recover margin leakage from invoice and POS mismatches",
-];
-
-const caseStudies = [
-  {
-    brand: "Harbor Kitchen Group",
-    result: "Reduced food waste by 14% in 90 days",
-    detail: "Used recipe-cost alerts and purchase variance monitoring across 4 locations.",
-  },
-  {
-    brand: "Westline Burgers",
-    result: "Improved gross margin by 5.2 points",
-    detail: "Balanced labor scheduling with daypart sales trends surfaced by MiseIQ dashboards.",
-  },
-];
-
-const blogPosts = [
-  {
-    title: "How to reduce food cost without lowering quality",
-    href: "/blog#reduce-food-cost",
-  },
-  {
-    title: "5 daily restaurant KPIs that predict margin pressure",
-    href: "/blog#daily-kpis",
-  },
-  {
-    title: "Building a chart of accounts for multi-location operators",
-    href: "/blog#chart-of-accounts",
   },
 ];
 
@@ -116,7 +81,10 @@ export default function PricingPage() {
   const [billingCycle, setBillingCycle] = useState<BillingCycle>("monthly");
 
   const savingsLabel = useMemo(
-    () => (billingCycle === "yearly" ? "Yearly billing includes ~20% savings." : "Switch to yearly and save ~20%."),
+    () =>
+      billingCycle === "yearly"
+        ? "Yearly billing includes ~20% savings."
+        : "Switch to yearly and save ~20%.",
     [billingCycle],
   );
 
@@ -142,13 +110,13 @@ export default function PricingPage() {
           </Link>
           <div className="flex items-center gap-2">
             <Link
-              href="/pricing"
+              href="/blog"
               className="rounded-md border border-white/30 bg-white/10 px-3 py-2 text-sm font-semibold backdrop-blur-sm transition hover:bg-white/20"
             >
-              Pricing
+              Blog
             </Link>
             <Link
-              href="#demo"
+              href="/demo"
               className="rounded-md border border-white/30 bg-white/10 px-4 py-2 text-sm font-bold backdrop-blur-sm transition hover:bg-white/20"
             >
               Book a Demo
@@ -159,11 +127,11 @@ export default function PricingPage() {
 
       <section className="mx-auto w-full max-w-6xl px-6 py-16">
         <h1 className="text-center text-5xl font-bold">
-          <span className="border-l-4 border-[#c9a646] pl-4">Pricing Plans</span>
+          <span className="border-l-4 border-[#c9a646] pl-4">Pricing built for real restaurant workflows</span>
         </h1>
         <p className="mx-auto mt-4 max-w-3xl text-center text-lg text-slate-700">
-          Built for independent operators and scaling chains that need real-time margin control and easy,
-          coach-supported rollout.
+          From independent operators to multi-unit brands, choose a plan that helps your team protect
+          margin and execute faster with less noise.
         </p>
 
         <div className="mx-auto mt-8 flex max-w-md items-center justify-center rounded-lg border border-[#081a3a]/20 bg-white p-2">
@@ -186,183 +154,58 @@ export default function PricingPage() {
             Yearly
           </button>
         </div>
-        <p className="mt-3 text-center text-sm font-medium text-[#112755]">{savingsLabel}</p>
-
-        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
-          {plans.map((plan) => {
-            const pricing = formatPrice(plan);
-            return (
-              <Card
-                key={plan.name}
-                className={`flex h-full flex-col bg-white ${plan.featured ? "border-2 border-[#c9a646] shadow-lg" : ""}`}
-              >
-                <CardHeader>
-                  <CardTitle className="text-3xl text-[#081a3a]">{plan.name}</CardTitle>
-                  <p className="text-slate-600">{plan.description}</p>
-                </CardHeader>
-                <CardContent className="flex flex-1 flex-col">
-                  <div className="mb-6">
-                    <p className="text-4xl font-bold text-[#081a3a]">{pricing.value}</p>
-                    <p className="text-sm text-slate-600">{pricing.subtext}</p>
-                  </div>
-                  <ul className="mb-8 space-y-2 text-slate-700">
-                    {plan.features.map((feature) => (
-                      <li key={feature}>• {feature}</li>
-                    ))}
-                  </ul>
-                  <Button className="mt-auto bg-[#081a3a] text-white hover:bg-[#112755]">
-                    {plan.name === "Enterprise" ? "Contact Sales" : "Start Trial"}
-                  </Button>
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
+        <p className="mt-3 text-center text-sm text-slate-600">{savingsLabel}</p>
       </section>
 
-      <section id="features" className="mx-auto w-full max-w-6xl px-6 py-10">
+      <section className="mx-auto grid w-full max-w-6xl gap-6 px-6 pb-16 md:grid-cols-3">
+        {plans.map((plan) => {
+          const price = formatPrice(plan);
+
+          return (
+            <Card
+              key={plan.name}
+              className={`bg-white ${plan.featured ? "border-2 border-[#c9a646] shadow-lg" : "border border-slate-300"}`}
+            >
+              <CardHeader>
+                <CardTitle className="text-2xl">{plan.name}</CardTitle>
+                <p className="text-slate-700">{plan.description}</p>
+                <p className="mt-4 text-4xl font-bold text-[#081a3a]">{price.value}</p>
+                <p className="text-sm text-slate-600">{price.subtext}</p>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3 text-slate-700">
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-2">
+                      <span className="mt-1 text-[#c9a646]">●</span>
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Button asChild className="mt-6 w-full bg-[#081a3a] text-white hover:bg-[#112755]">
+                  <Link href="/demo">{plan.name === "Enterprise" ? "Talk to Sales" : "Start with a Demo"}</Link>
+                </Button>
+              </CardContent>
+            </Card>
+          );
+        })}
+      </section>
+
+      <section className="mx-auto w-full max-w-6xl px-6 pb-20" id="features">
         <h2 className="text-3xl font-bold">
-          <span className="border-l-4 border-[#c9a646] pl-4">Detailed Platform Features</span>
+          <span className="border-l-4 border-[#c9a646] pl-4">What every plan is designed to support</span>
         </h2>
-        <div className="mt-8 grid gap-6 md:grid-cols-3">
-          {featureGroups.map((group) => (
+        <div className="mt-6 grid gap-6 md:grid-cols-3">
+          {platformAreas.map((group) => (
             <Card key={group.title} className="bg-white">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold">{group.title}</h3>
-                <ul className="mt-4 space-y-2 text-slate-700">
+              <CardHeader>
+                <CardTitle>{group.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2 text-slate-700">
                   {group.items.map((item) => (
                     <li key={item}>• {item}</li>
                   ))}
                 </ul>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      <section className="mx-auto w-full max-w-6xl px-6 py-10">
-        <h2 className="text-3xl font-bold">
-          <span className="border-l-4 border-[#c9a646] pl-4">Prove ROI at a Glance</span>
-        </h2>
-        <div className="mt-6 grid gap-6 md:grid-cols-2">
-          <Card className="bg-white">
-            <CardContent className="p-6">
-              <ul className="space-y-3 text-slate-700">
-                {roiHighlights.map((highlight) => (
-                  <li key={highlight}>• {highlight}</li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
-          <Card className="bg-white">
-            <CardContent className="p-4">
-              <Image
-                src="/dashboard-hero.png"
-                alt="MiseIQ dashboard showing real-time restaurant metrics"
-                width={900}
-                height={520}
-                className="h-auto w-full rounded-md border border-slate-200"
-              />
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      <section className="mx-auto w-full max-w-6xl px-6 py-10">
-        <div className="grid gap-6 md:grid-cols-2">
-          <Card className="bg-white">
-            <CardContent className="p-6">
-              <h2 className="text-2xl font-bold">Client Case Studies</h2>
-              <div className="mt-4 space-y-4 text-slate-700">
-                {caseStudies.map((study) => (
-                  <div key={study.brand}>
-                    <p className="font-semibold text-[#081a3a]">{study.brand}</p>
-                    <p>{study.result}</p>
-                    <p className="text-sm">{study.detail}</p>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-white">
-            <CardContent className="p-6">
-              <h2 className="text-2xl font-bold">Security & Compliance</h2>
-              <ul className="mt-4 space-y-2 text-slate-700">
-                <li>• SOC 2-aligned controls and annual penetration testing</li>
-                <li>• AES-256 encryption at rest and TLS in transit</li>
-                <li>• Role-based access controls with audit-ready logs</li>
-                <li>• Secure bank reconciliation workflows and vendor verification</li>
-              </ul>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      <section className="mx-auto w-full max-w-6xl px-6 py-10">
-        <Card className="bg-white">
-          <CardContent className="p-6">
-            <h2 className="text-2xl font-bold">Built for Independents and Chains</h2>
-            <p className="mt-3 text-slate-700">
-              Independent restaurants get quick setup and daily coaching to protect cash flow, while regional
-              and national groups gain consistent reporting, role-based governance, and scalable playbooks.
-            </p>
-          </CardContent>
-        </Card>
-      </section>
-
-            <section id="demo" className="mx-auto w-full max-w-6xl px-6 py-10">
-        <Card className="border-2 border-[#c9a646] bg-white">
-          <CardContent className="flex flex-col gap-6 p-6 md:flex-row md:items-center md:justify-between">
-            <div>
-              <h2 className="text-3xl font-bold">Book a Personalized Demo</h2>
-              <p className="mt-2 max-w-2xl text-slate-700">
-                See how MiseIQ handles your real menu mix, inventory flow, and labor profile in a guided
-                30-minute walkthrough.
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-3">
-              <Button asChild className="bg-[#081a3a] text-white hover:bg-[#112755]">
-                <Link href="https://calendly.com" target="_blank" rel="noreferrer">
-                  Open Calendar
-                </Link>
-              </Button>
-              <Button asChild variant="outline" className="border-[#081a3a] text-[#081a3a]">
-                <Link href="#calendar-setup">Setup Guide</Link>
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
-      </section>
-
-      <section id="calendar-setup" className="mx-auto w-full max-w-6xl px-6 py-10">
-        <Card className="bg-white">
-          <CardContent className="p-6">
-            <h2 className="text-2xl font-bold">How to Add Your Demo Calendar</h2>
-            <ol className="mt-4 list-decimal space-y-2 pl-5 text-slate-700">
-              <li>Create a booking page in Calendly, Cal.com, or Google Appointment Schedule.</li>
-              <li>Replace the `https://calendly.com` link with your real booking URL.</li>
-              <li>
-                For inline booking, embed your calendar in this section with an iframe after publishing your
-                scheduling page.
-              </li>
-            </ol>
-          </CardContent>
-        </Card>
-      </section>
-
-      <section className="mx-auto w-full max-w-6xl px-6 py-10 pb-20">
-        <h2 className="text-3xl font-bold">
-          <span className="border-l-4 border-[#c9a646] pl-4">Resources for Operators</span>
-        </h2>
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
-          {blogPosts.map((post) => (
-            <Card key={post.title} className="bg-white">
-              <CardContent className="p-6">
-                <Link href={post.href} className="font-semibold text-[#081a3a] hover:underline">
-                  {post.title}
-                </Link>
-                <p className="mt-2 text-sm text-slate-600">Educational guide for restaurant finance teams.</p>
               </CardContent>
             </Card>
           ))}
