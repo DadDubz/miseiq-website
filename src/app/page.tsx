@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -67,9 +68,15 @@ export default function Home() {
     <main className="flex min-h-screen w-full flex-col items-center bg-[#e8eaee] text-[#081a3a]">
       <header className="sticky top-0 z-20 w-full border-b border-[#1b2a4a] bg-[#081a3a] py-4 text-white">
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6">
-          <Link href="#top" className="flex flex-col leading-tight">
-            <span className="font-serif text-5xl tracking-wide text-[#d5b15b]">MiseIQ</span>
-            <span className="text-sm font-semibold">Financial Mise en Place</span>
+          <Link href="#top" className="flex items-center" aria-label="MiseIQ home">
+            <Image
+              src="/miseiq-logo.svg"
+              alt="MiseIQ Financial Mise en Place logo"
+              width={190}
+              height={90}
+              className="h-auto w-[150px] md:w-[190px]"
+              priority
+            />
           </Link>
           <nav className="flex gap-2 text-sm font-semibold">
             {navItems.map((item) => (
