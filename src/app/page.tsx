@@ -70,7 +70,7 @@ export default function Home() {
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6">
           <Link href="#top" className="flex items-center" aria-label="MiseIQ home">
             <Image
-              src="/miseiq-logo.svg"
+              src="/miseiq-logo.png"
               alt="MiseIQ Financial Mise en Place logo"
               width={190}
               height={90}
