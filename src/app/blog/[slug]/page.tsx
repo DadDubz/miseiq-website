@@ -23,7 +23,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <main className="relative isolate min-h-screen overflow-hidden bg-[#f4efe6] text-[#11213b]">
-      <div className="absolute inset-x-0 top-0 -z-10 h-[40rem] bg-[radial-gradient(circle_at_top_left,_rgba(196,154,86,0.16),_transparent_34%),linear-gradient(180deg,_#10203a_0%,_#172947_50%,_#233657_62%,_#f4efe6_92%)]" />
+      <div className="absolute inset-x-0 top-0 -z-10 h-[50rem] bg-[radial-gradient(circle_at_top_left,_rgba(196,154,86,0.16),_transparent_34%),linear-gradient(180deg,_#10203a_0%,_#172947_58%,_#233657_74%,_#f4efe6_96%)]" />
 
       <MarketingHeader navItems={[{ label: "Back to Blog", href: "/blog" }, { label: "Pricing", href: "/pricing" }, { label: "Platform", href: "/#platform" }]} />
 

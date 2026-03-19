@@ -106,7 +106,7 @@ export default function PricingPage() {
 
   return (
     <main className="relative isolate min-h-screen overflow-hidden bg-[#f4efe6] text-[#11213b]">
-      <div className="absolute inset-x-0 top-0 -z-10 h-[48rem] bg-[radial-gradient(circle_at_top_left,_rgba(196,154,86,0.16),_transparent_34%),radial-gradient(circle_at_top_right,_rgba(17,33,59,0.1),_transparent_28%),linear-gradient(180deg,_#10203a_0%,_#172947_48%,_#233657_60%,_#f4efe6_92%)]" />
+      <div className="absolute inset-x-0 top-0 -z-10 h-[56rem] bg-[radial-gradient(circle_at_top_left,_rgba(196,154,86,0.16),_transparent_34%),radial-gradient(circle_at_top_right,_rgba(17,33,59,0.1),_transparent_28%),linear-gradient(180deg,_#10203a_0%,_#172947_56%,_#233657_72%,_#f4efe6_96%)]" />
 
       <MarketingHeader navItems={[{ label: "Platform", href: "/#platform" }, { label: "Blog", href: "/blog" }, { label: "Demo", href: "/demo" }]} />
 
