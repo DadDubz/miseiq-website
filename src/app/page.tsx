@@ -227,7 +227,7 @@ export default function Home() {
             <h1 className="mt-6 max-w-4xl text-5xl leading-[0.95] font-semibold tracking-[-0.04em] text-white md:text-7xl [font-family:Georgia,'Times_New_Roman',serif]">
               Financial Mise en Place for Restaurants
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/76 md:text-xl">
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/92 md:text-xl">
               MiseIQ brings POS sales, invoices, inventory, guest traffic, delivery economics, occupancy costs,
               payables, and cash outlook into one operating system so restaurant teams can spot margin leaks, manage
               prime cost, and make faster owner-level decisions.
@@ -245,13 +245,13 @@ export default function Home() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="rounded-full border-white/30 bg-white/6 px-7 text-base text-white hover:bg-white/10"
+                className="rounded-full border-white/55 bg-white/14 px-7 text-base text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] hover:bg-white/18"
               >
                 <Link href="#platform">Explore the Platform</Link>
               </Button>
             </div>
 
-            <p className="mt-8 text-sm leading-7 text-white/58">
+            <p className="mt-8 text-sm leading-7 text-white/82">
               Built for independent owners, multi-unit groups, operators, and finance-minded hospitality teams that
               need more than a sales dashboard.
             </p>
