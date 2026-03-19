@@ -20,10 +20,10 @@ export default function BlogPage() {
             <p className="inline-flex rounded-full border border-[#c49a56]/35 bg-white/8 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#f3dfbf]">
               MiseIQ journal
             </p>
-            <h1 className="mt-6 text-5xl leading-[0.95] font-semibold tracking-[-0.04em] text-white md:text-7xl [font-family:Georgia,'Times_New_Roman',serif]">
+            <h1 className="mt-6 text-5xl leading-[0.95] font-semibold tracking-[-0.04em] text-[#34415a] md:text-7xl [font-family:Georgia,'Times_New_Roman',serif]">
               Restaurant finance and operations insights with real operating context
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/76 md:text-xl">
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#1c2b45] md:text-xl">
               Writing for owners, operators, and hospitality finance teams who care about prime cost, labor pressure,
               purchasing discipline, and cleaner decisions.
             </p>
