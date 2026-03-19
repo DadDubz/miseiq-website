@@ -7,14 +7,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 type BillingCycle = "monthly" | "yearly";
 
-const optionalSetupFee = 100;
-
 const plans = [
   {
     name: "Operator",
-    monthlyPrice: 199,
-    yearlyPrice: 1990,
+    monthlyPrice: 129,
+    yearlyPrice: 1290,
     cadence: "/location",
+    onboardingFee: 100,
     description: "For single-location operators who need daily margin control.",
     features: [
       "Executive daily briefing and action queue",
@@ -25,9 +24,10 @@ const plans = [
   },
   {
     name: "Multi-Unit",
-    monthlyPrice: 379,
-    yearlyPrice: 3790,
+    monthlyPrice: 329,
+    yearlyPrice: 3290,
     cadence: "/location",
+    onboardingFee: 200,
     description: "For growing groups standardizing performance across stores.",
     features: [
       "Everything in Operator",
@@ -42,6 +42,7 @@ const plans = [
     monthlyPrice: null,
     yearlyPrice: null,
     cadence: "annual contract",
+    onboardingFee: 300,
     description: "For brands requiring custom rollout, controls, and governance.",
     features: [
       "Everything in Multi-Unit",
@@ -153,13 +154,15 @@ export default function PricingPage() {
         </p>
 
         <p className="mx-auto mt-2 max-w-3xl text-center text-sm font-medium text-[#112755]">
-          Current rates: Operator $100/month and Multi-Unit $300/month.
+          Current rates: Operator $129/location/month and Multi-Unit
+          $329/location/month.
         </p>
 
         <p className="mt-6 text-center text-sm text-slate-600">
-          Optional white-glove onboarding is available for a one-time{" "}
-          <strong>${optionalSetupFee}</strong> fee to professionally configure
-          recipes, menu items, and essential account setup.
+          Optional white-glove onboarding starts at{" "}
+          <strong>$100 per location</strong> and increases by tier for
+          professional configuration of recipes, menu items, and essential
+          account setup.
         </p>
 
         <div className="mx-auto mt-8 flex max-w-md items-center justify-center rounded-lg border border-[#081a3a]/20 bg-white p-2">
@@ -213,7 +216,8 @@ export default function PricingPage() {
                 </p>
                 <p className="text-sm text-slate-600">{price.subtext}</p>
                 <p className="mt-1 text-sm font-medium text-[#112755]">
-                  Optional white-glove onboarding: +${optionalSetupFee} one-time
+                  Optional white-glove onboarding: +${plan.onboardingFee}/location
+                  one-time
                 </p>
               </CardHeader>
 
