@@ -1,58 +1,99 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
-import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { MarketingFooter, MarketingHeader } from "@/components/marketing-shell";
 import { blogPosts } from "@/lib/blog-posts";
 
 export default function BlogPage() {
+  const featuredPost = blogPosts[0];
+  const remainingPosts = blogPosts.slice(1);
+
   return (
-    <main className="min-h-screen bg-[#e8eaee] text-[#081a3a]">
-      <header className="w-full border-b border-[#1b2a4a] bg-[#081a3a] py-4 text-white">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6">
-          <Link href="/" className="font-serif text-4xl tracking-wide text-[#d5b15b]">
-            MiseIQ
-          </Link>
-          <div className="flex gap-2 text-sm font-semibold">
-            <Link
-              href="/pricing"
-              className="rounded-md border border-white/30 bg-white/10 px-3 py-2 backdrop-blur-sm transition hover:bg-white/20"
-            >
-              Pricing
-            </Link>
-            <Link
-              href="/demo"
-              className="rounded-md border border-white/30 bg-white/10 px-3 py-2 backdrop-blur-sm transition hover:bg-white/20"
-            >
-              Book a Demo
-            </Link>
+    <main className="relative isolate min-h-screen overflow-hidden bg-[#f4efe6] text-[#11213b]">
+      <div className="absolute inset-x-0 top-0 -z-10 h-[34rem] bg-[radial-gradient(circle_at_top_left,_rgba(196,154,86,0.18),_transparent_34%),radial-gradient(circle_at_top_right,_rgba(17,33,59,0.1),_transparent_30%),linear-gradient(180deg,_#10203a_0%,_#172947_38%,_#f4efe6_100%)]" />
+
+      <MarketingHeader navItems={[{ label: "Platform", href: "/#platform" }, { label: "Pricing", href: "/pricing" }, { label: "Demo", href: "/demo" }]} />
+
+      <section className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8 md:py-24">
+        <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr]">
+          <div className="max-w-3xl">
+            <p className="inline-flex rounded-full border border-[#c49a56]/35 bg-white/8 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#f3dfbf]">
+              MiseIQ journal
+            </p>
+            <h1 className="mt-6 text-5xl leading-[0.95] font-semibold tracking-[-0.04em] text-white md:text-7xl [font-family:Georgia,'Times_New_Roman',serif]">
+              Restaurant finance and operations insights with real operating context
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/76 md:text-xl">
+              Writing for owners, operators, and hospitality finance teams who care about prime cost, labor pressure,
+              purchasing discipline, and cleaner decisions.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Button
+                asChild
+                size="lg"
+                className="rounded-full bg-[#c49a56] px-7 text-base font-semibold text-[#11213b] hover:bg-[#d4b27f]"
+              >
+                <Link href="/demo">Book a Demo</Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="rounded-full border-white/25 bg-white/6 px-7 text-base text-white hover:bg-white/10"
+              >
+                <Link href="/pricing">Review Pricing</Link>
+              </Button>
+            </div>
           </div>
-        </div>
-      </header>
 
-      <section className="mx-auto w-full max-w-6xl px-6 py-14">
-        <h1 className="text-5xl font-bold">
-          <span className="border-l-4 border-[#c9a646] pl-4">MiseIQ Blog</span>
-        </h1>
-        <p className="mt-4 max-w-3xl text-lg text-slate-700">
-          Insights for restaurant owners and operators on margins, labor control, integrations, and smarter
-          day-to-day execution.
-        </p>
-      </section>
-
-      <section className="mx-auto grid w-full max-w-6xl gap-6 px-6 pb-20 md:grid-cols-2">
-        {blogPosts.map((post) => (
-          <Link key={post.slug} href={`/blog/${post.slug}`}>
-            <Card className="h-full border border-slate-300 bg-white transition hover:-translate-y-1 hover:shadow-lg">
-              <img src={post.imageUrl} alt={post.imageAlt} className="h-52 w-full rounded-t-lg object-cover" />
-              <CardContent className="p-6">
-                <p className="text-sm font-medium text-[#112755]">{post.readTime}</p>
-                <h2 className="mt-1 text-2xl font-bold">{post.title}</h2>
-                <p className="mt-3 text-slate-700">{post.summary}</p>
-                <p className="mt-4 text-sm font-semibold text-[#112755]">Read article →</p>
-              </CardContent>
-            </Card>
+          <Link
+            href={`/blog/${featuredPost.slug}`}
+            className="group rounded-[2rem] border border-white/10 bg-[#0d1a31]/82 p-4 shadow-[0_30px_90px_rgba(9,16,30,0.45)] backdrop-blur-xl"
+          >
+            <div className="overflow-hidden rounded-[1.6rem] border border-white/10 bg-white/5">
+              <img
+                src={featuredPost.imageUrl}
+                alt={featuredPost.imageAlt}
+                className="h-72 w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+              />
+              <div className="p-6 text-white">
+                <p className="text-xs uppercase tracking-[0.22em] text-[#f3dfbf]/70">Featured article</p>
+                <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em]">{featuredPost.title}</h2>
+                <p className="mt-3 text-sm font-medium text-white/60">{featuredPost.readTime}</p>
+                <p className="mt-4 text-base leading-8 text-white/76">{featuredPost.summary}</p>
+                <p className="mt-5 text-sm font-semibold uppercase tracking-[0.18em] text-[#f3dfbf]">Read article</p>
+              </div>
+            </div>
           </Link>
-        ))}
+        </div>
       </section>
+
+      <section className="mx-auto w-full max-w-7xl px-5 pb-20 md:px-8">
+        <div className="mb-10 max-w-3xl">
+          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#8e6d38]">Latest writing</p>
+          <h2 className="mt-4 text-4xl font-semibold tracking-[-0.03em] text-[#11213b] md:text-5xl">
+            Practical articles for restaurants that want better margin control
+          </h2>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {remainingPosts.map((post) => (
+            <Link key={post.slug} href={`/blog/${post.slug}`} className="group">
+              <article className="h-full overflow-hidden rounded-[2rem] border border-[#d9cfbf] bg-white shadow-[0_18px_60px_rgba(17,33,59,0.06)] transition duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_24px_80px_rgba(17,33,59,0.12)]">
+                <img src={post.imageUrl} alt={post.imageAlt} className="h-56 w-full object-cover" />
+                <div className="p-7">
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#8e6d38]">{post.readTime}</p>
+                  <h2 className="mt-3 text-2xl font-semibold tracking-[-0.02em] text-[#11213b]">{post.title}</h2>
+                  <p className="mt-4 text-base leading-8 text-[#4f5b6d]">{post.summary}</p>
+                  <p className="mt-5 text-sm font-semibold uppercase tracking-[0.18em] text-[#11213b]">Read article</p>
+                </div>
+              </article>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <MarketingFooter />
     </main>
   );
 }

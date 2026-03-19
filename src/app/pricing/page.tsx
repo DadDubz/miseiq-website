@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { MarketingFooter, MarketingHeader } from "@/components/marketing-shell";
 
 type BillingCycle = "monthly" | "yearly";
 
@@ -14,12 +14,12 @@ const plans = [
     yearlyPrice: 1290,
     cadence: "/location",
     onboardingFee: 100,
-    description: "For single-location operators who need daily margin control.",
+    description: "For single-location operators who want daily margin control without adding another reporting mess.",
     features: [
-      "Executive daily briefing and action queue",
-      "POS + invoice ingestion and sync health monitoring",
-      "Core drift detection for sales, labor, and costs",
-      "Menu margin diagnostics with guided recommendations",
+      "POS, invoice, and sales intelligence in one operating view",
+      "Prime cost direction, labor pressure, and discount leakage visibility",
+      "Daily alerts and KPI targets for owner and GM decision-making",
+      "Menu-margin and purchasing workflows for tighter cost control",
     ],
   },
   {
@@ -28,12 +28,12 @@ const plans = [
     yearlyPrice: 3290,
     cadence: "/location",
     onboardingFee: 200,
-    description: "For growing groups standardizing performance across stores.",
+    description: "For growing restaurant groups standardizing financial operating control across stores.",
     features: [
       "Everything in Operator",
-      "Cross-location trend analysis and risk scoring",
-      "Workflow ownership tracking by manager and due date",
-      "Scenario lab for pricing and margin decisions",
+      "Cross-location comparison for labor, margin, and operating drift",
+      "Shared visibility for operators, directors, and finance leadership",
+      "Benchmarking and workflow coordination across locations",
     ],
     featured: true,
   },
@@ -43,40 +43,35 @@ const plans = [
     yearlyPrice: null,
     cadence: "annual contract",
     onboardingFee: 300,
-    description: "For brands requiring custom rollout, controls, and governance.",
+    description: "For brands that need rollout planning, governance, and a more tailored operating model.",
     features: [
       "Everything in Multi-Unit",
-      "Custom integration planning and staged migration runbooks",
-      "Advanced tenant-aware controls and deployment support",
-      "Dedicated implementation and success partnership",
+      "Custom rollout planning and data-source implementation support",
+      "Advanced controls, governance, and enterprise readiness",
+      "Dedicated partnership for onboarding, migration, and expansion",
     ],
   },
 ];
 
-const platformAreas = [
+const valuePoints = [
+  "No per-seat pricing or bloated software bundles",
+  "Per-location pricing that matches how restaurant groups scale",
+  "Onboarding that increases by tier at $100 per location",
+  "Built for operators who care about margin, not vanity analytics",
+];
+
+const includedAreas = [
   {
-    title: "Operations Intelligence",
-    items: [
-      "Automated anomaly detection with root-cause context",
-      "Prioritized alerts with next-best-action suggestions",
-      "Daily risk visibility to reduce operating volatility",
-    ],
+    title: "Financial control",
+    body: "Prime cost visibility, labor percent, COGS proxy, discount leakage, delivery drag, AP aging, and cash outlook in one system.",
   },
   {
-    title: "Menu + Margin Tools",
-    items: [
-      "Item-level margin visibility and opportunity scoring",
-      "Basic and advanced menu item builder experiences",
-      "Scenario modeling before pricing changes go live",
-    ],
+    title: "Connected restaurant data",
+    body: "POS sales, invoices, inventory, guest traffic, occupancy, delivery channel economics, and payables context without spreadsheet stitching.",
   },
   {
-    title: "Integration Ecosystem",
-    items: [
-      "Square, Clover, QuickBooks, and Xero OAuth workflows",
-      "Support paths for Toast, SkyTab, Restaurant365, Craftable, and MarketMan",
-      "Webhook and reconnect utilities for ongoing sync reliability",
-    ],
+    title: "Operator-ready execution",
+    body: "Alerts, KPI targets, benchmarking, and workflow visibility so teams can act on what changed instead of reviewing numbers too late.",
   },
 ];
 
@@ -86,8 +81,8 @@ export default function PricingPage() {
   const savingsLabel = useMemo(
     () =>
       billingCycle === "yearly"
-        ? "Yearly billing includes ~17% savings (about 2 months free)."
-        : "Switch to yearly and save ~17%.",
+        ? "Yearly billing includes about two months free."
+        : "Switch to yearly billing for the strongest rate.",
     [billingCycle],
   );
 
@@ -110,69 +105,68 @@ export default function PricingPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#e8eaee] text-[#081a3a]">
-      <header className="sticky top-0 z-10 w-full border-b border-[#1b2a4a] bg-[#081a3a] py-4 text-white">
-        <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6">
-          <Link href="/" className="flex flex-col leading-tight">
-            <span className="font-serif text-5xl tracking-wide text-[#d5b15b]">
-              MiseIQ
-            </span>
-            <span className="text-sm font-semibold">
-              Financial Mise en Place
-            </span>
-          </Link>
+    <main className="relative isolate min-h-screen overflow-hidden bg-[#f4efe6] text-[#11213b]">
+      <div className="absolute inset-x-0 top-0 -z-10 h-[38rem] bg-[radial-gradient(circle_at_top_left,_rgba(196,154,86,0.18),_transparent_34%),radial-gradient(circle_at_top_right,_rgba(17,33,59,0.1),_transparent_30%),linear-gradient(180deg,_#10203a_0%,_#172947_40%,_#f4efe6_100%)]" />
 
-          <div className="flex items-center gap-2">
-            <Link
-              href="/blog"
-              className="rounded-md border border-white/30 bg-white/10 px-3 py-2 text-sm font-semibold backdrop-blur-sm transition hover:bg-white/20"
-            >
-              Blog
-            </Link>
-            <Link
-              href="/demo"
-              className="rounded-md border border-white/30 bg-white/10 px-4 py-2 text-sm font-bold backdrop-blur-sm transition hover:bg-white/20"
-            >
-              Book a Demo
-            </Link>
+      <MarketingHeader navItems={[{ label: "Platform", href: "/#platform" }, { label: "Blog", href: "/blog" }, { label: "Demo", href: "/demo" }]} />
+
+      <section className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8 md:py-24">
+        <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="max-w-3xl">
+            <p className="inline-flex rounded-full border border-[#c49a56]/35 bg-white/8 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#f3dfbf]">
+              Pricing
+            </p>
+            <h1 className="mt-6 text-5xl leading-[0.95] font-semibold tracking-[-0.04em] text-white md:text-7xl [font-family:Georgia,'Times_New_Roman',serif]">
+              Pricing built for serious restaurant operators
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/76 md:text-xl">
+              Clear per-location pricing for teams that need stronger financial control across operations, purchasing,
+              delivery, and owner visibility. No vague platform bundles. No generic analytics upsell.
+            </p>
+
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Button
+                asChild
+                size="lg"
+                className="rounded-full bg-[#c49a56] px-7 text-base font-semibold text-[#11213b] hover:bg-[#d4b27f]"
+              >
+                <Link href="/demo">Book a Demo</Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="rounded-full border-white/25 bg-white/6 px-7 text-base text-white hover:bg-white/10"
+              >
+                <Link href="/#platform">Explore the Platform</Link>
+              </Button>
+            </div>
+          </div>
+
+          <div className="rounded-[2rem] border border-white/10 bg-[#0d1a31]/82 p-6 shadow-[0_30px_90px_rgba(9,16,30,0.45)] backdrop-blur-xl">
+            <div className="rounded-[1.6rem] border border-white/10 bg-white/5 p-6 text-white">
+              <p className="text-xs uppercase tracking-[0.24em] text-[#f3dfbf]/70">Pricing notes</p>
+              <div className="mt-5 space-y-4">
+                {valuePoints.map((point) => (
+                  <div key={point} className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4">
+                    <p className="text-sm leading-7 text-white/78">{point}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="mt-5 text-sm leading-7 text-white/62">
+                Current published rates: Operator at $129 per location per month, Multi-Unit at $329 per location per
+                month, with annual equivalents available for teams that want the strongest rate.
+              </p>
+            </div>
           </div>
         </div>
-      </header>
 
-      <section className="mx-auto w-full max-w-6xl px-6 py-16">
-        <h1 className="text-center text-5xl font-bold">
-          <span className="border-l-4 border-[#c9a646] pl-4">
-            Pricing built for real restaurant workflows
-          </span>
-        </h1>
-
-        <p className="mx-auto mt-4 max-w-3xl text-center text-lg text-slate-700">
-          From independent operators to multi-unit brands, choose a plan that
-          helps your team protect margin and execute faster with less noise.
-          Straightforward monthly pricing that stays affordable while supporting
-          high-impact operational outcomes.
-        </p>
-
-        <p className="mx-auto mt-2 max-w-3xl text-center text-sm font-medium text-[#112755]">
-          Current rates: Operator $129/location/month and Multi-Unit
-          $329/location/month.
-        </p>
-
-        <p className="mt-6 text-center text-sm text-slate-600">
-          Optional white-glove onboarding starts at{" "}
-          <strong>$100 per location</strong> and increases by tier for
-          professional configuration of recipes, menu items, and essential
-          account setup.
-        </p>
-
-        <div className="mx-auto mt-8 flex max-w-md items-center justify-center rounded-lg border border-[#081a3a]/20 bg-white p-2">
+        <div className="mx-auto mt-12 flex max-w-md items-center justify-center rounded-full border border-[#d7c4a2] bg-[#fbf7f0] p-2 shadow-[0_14px_40px_rgba(17,33,59,0.08)]">
           <button
             type="button"
             onClick={() => setBillingCycle("monthly")}
-            className={`w-1/2 rounded-md px-4 py-2 text-sm font-semibold ${
-              billingCycle === "monthly"
-                ? "bg-[#081a3a] text-white"
-                : "text-[#081a3a]"
+            className={`w-1/2 rounded-full px-4 py-3 text-sm font-semibold ${
+              billingCycle === "monthly" ? "bg-[#11213b] text-white" : "text-[#11213b]"
             }`}
           >
             Monthly
@@ -180,97 +174,120 @@ export default function PricingPage() {
           <button
             type="button"
             onClick={() => setBillingCycle("yearly")}
-            className={`w-1/2 rounded-md px-4 py-2 text-sm font-semibold ${
-              billingCycle === "yearly"
-                ? "bg-[#081a3a] text-white"
-                : "text-[#081a3a]"
+            className={`w-1/2 rounded-full px-4 py-3 text-sm font-semibold ${
+              billingCycle === "yearly" ? "bg-[#11213b] text-white" : "text-[#11213b]"
             }`}
           >
             Yearly
           </button>
         </div>
 
-        <p className="mt-3 text-center text-sm text-slate-600">
-          {savingsLabel}
-        </p>
+        <p className="mt-4 text-center text-sm text-[#5b6475]">{savingsLabel}</p>
       </section>
 
-      <section className="mx-auto grid w-full max-w-6xl gap-6 px-6 pb-16 md:grid-cols-3">
+      <section className="mx-auto grid w-full max-w-7xl gap-6 px-5 pb-16 md:px-8 xl:grid-cols-3">
         {plans.map((plan) => {
           const price = formatPrice(plan);
 
           return (
-            <Card
+            <div
               key={plan.name}
-              className={`bg-white ${
+              className={`rounded-[2rem] p-[1px] ${
                 plan.featured
-                  ? "border-2 border-[#c9a646] shadow-lg"
-                  : "border border-slate-300"
+                  ? "bg-[linear-gradient(180deg,rgba(196,154,86,1),rgba(196,154,86,0.25))]"
+                  : "bg-[linear-gradient(180deg,rgba(217,207,191,1),rgba(217,207,191,0.4))]"
               }`}
             >
-              <CardHeader>
-                <CardTitle className="text-2xl">{plan.name}</CardTitle>
-                <p className="text-slate-700">{plan.description}</p>
-                <p className="mt-4 text-4xl font-bold text-[#081a3a]">
-                  {price.value}
-                </p>
-                <p className="text-sm text-slate-600">{price.subtext}</p>
-                <p className="mt-1 text-sm font-medium text-[#112755]">
-                  Optional white-glove onboarding: +${plan.onboardingFee}/location
-                  one-time
-                </p>
-              </CardHeader>
+              <div className="h-full rounded-[calc(2rem-1px)] bg-white p-7 shadow-[0_18px_60px_rgba(17,33,59,0.06)]">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#8e6d38]">{plan.name}</p>
+                    <h2 className="mt-4 text-4xl font-semibold tracking-[-0.03em] text-[#11213b]">{price.value}</h2>
+                    <p className="mt-2 text-sm text-[#5b6475]">{price.subtext}</p>
+                  </div>
+                  {plan.featured ? (
+                    <span className="rounded-full border border-[#d8b983] bg-[#fbf2df] px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#8e6d38]">
+                      Most popular
+                    </span>
+                  ) : null}
+                </div>
 
-              <CardContent>
-                <ul className="space-y-3 text-slate-700">
+                <p className="mt-5 text-base leading-8 text-[#4f5b6d]">{plan.description}</p>
+                <p className="mt-4 rounded-2xl border border-[#e9decd] bg-[#fbf7f0] px-4 py-3 text-sm font-medium text-[#24334d]">
+                  White-glove onboarding: +${plan.onboardingFee}/location one-time
+                </p>
+
+                <ul className="mt-6 space-y-3">
                   {plan.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-2">
-                      <span className="mt-1 text-[#c9a646]">●</span>
-                      <span>{feature}</span>
+                    <li key={feature} className="rounded-2xl border border-[#eee3d2] bg-[#fcfaf5] px-4 py-4 text-sm leading-7 text-[#24334d]">
+                      {feature}
                     </li>
                   ))}
                 </ul>
 
                 <Button
                   asChild
-                  className="mt-6 w-full bg-[#081a3a] text-white hover:bg-[#112755]"
+                  size="lg"
+                  className="mt-8 w-full rounded-full bg-[#11213b] text-white hover:bg-[#1c3151]"
                 >
-                  <Link href="/demo">
-                    {plan.name === "Enterprise"
-                      ? "Talk to Sales"
-                      : "Start with a Demo"}
-                  </Link>
+                  <Link href="/demo">{plan.name === "Enterprise" ? "Talk to Sales" : "See MiseIQ in Action"}</Link>
                 </Button>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           );
         })}
       </section>
 
-      <section className="mx-auto w-full max-w-6xl px-6 pb-20" id="features">
-        <h2 className="text-3xl font-bold">
-          <span className="border-l-4 border-[#c9a646] pl-4">
-            What every plan is designed to support
-          </span>
-        </h2>
+      <section className="border-y border-[#ded2be] bg-[#efe7d8] py-16 md:py-20">
+        <div className="mx-auto w-full max-w-7xl px-5 md:px-8">
+          <div className="max-w-3xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#8e6d38]">What plans are built to support</p>
+            <h2 className="mt-4 text-4xl font-semibold tracking-[-0.03em] text-[#11213b] md:text-5xl">
+              Every tier is designed around restaurant financial operations, not surface-level reporting
+            </h2>
+          </div>
 
-        <div className="mt-6 grid gap-6 md:grid-cols-3">
-          {platformAreas.map((group) => (
-            <Card key={group.title} className="bg-white">
-              <CardHeader>
-                <CardTitle>{group.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 text-slate-700">
-                  {group.items.map((item) => (
-                    <li key={item}>• {item}</li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          ))}
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {includedAreas.map((area) => (
+              <div key={area.title} className="rounded-[1.75rem] border border-[#d8c6a7] bg-white p-7">
+                <h3 className="text-2xl font-semibold text-[#11213b]">{area.title}</h3>
+                <p className="mt-4 text-base leading-8 text-[#4f5b6d]">{area.body}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
+
+      <section className="mx-auto w-full max-w-6xl px-5 py-16 md:px-8 md:py-24">
+        <div className="rounded-[2.2rem] border border-[#d7c4a2] bg-[linear-gradient(135deg,#11213b_0%,#1d3152_100%)] px-6 py-10 text-white shadow-[0_30px_90px_rgba(17,33,59,0.16)] md:px-10 md:py-14">
+          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#d6b57a]">Need the right fit?</p>
+          <h2 className="mt-4 max-w-3xl text-4xl font-semibold tracking-[-0.03em] md:text-5xl">
+            We can walk through the right tier based on store count, workflows, and rollout needs
+          </h2>
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-white/72">
+            The fastest way to understand fit is a short product walkthrough with your operating model in mind.
+          </p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Button
+              asChild
+              size="lg"
+              className="rounded-full bg-[#c49a56] px-7 text-base font-semibold text-[#11213b] hover:bg-[#d4b27f]"
+            >
+              <Link href="/demo">Book a Demo</Link>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="rounded-full border-white/25 bg-transparent px-7 text-base text-white hover:bg-white/10"
+            >
+              <Link href="/blog">Read the Blog</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      <MarketingFooter />
     </main>
   );
 }

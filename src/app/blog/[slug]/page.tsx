@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { MarketingFooter, MarketingHeader } from "@/components/marketing-shell";
 import { blogPosts, getBlogPostBySlug } from "@/lib/blog-posts";
 
 type BlogPostPageProps = {
@@ -20,63 +22,79 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   }
 
   return (
-    <main className="min-h-screen bg-[#e8eaee] text-[#081a3a]">
-      <header className="w-full border-b border-[#1b2a4a] bg-[#081a3a] py-4 text-white">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6">
-          <Link href="/" className="font-serif text-4xl tracking-wide text-[#d5b15b]">
-            MiseIQ
-          </Link>
-          <div className="flex gap-2 text-sm font-semibold">
-            <Link
-              href="/blog"
-              className="rounded-md border border-white/30 bg-white/10 px-3 py-2 backdrop-blur-sm transition hover:bg-white/20"
-            >
-              Back to Blog
-            </Link>
-            <Link
-              href="/demo"
-              className="rounded-md border border-white/30 bg-white/10 px-3 py-2 backdrop-blur-sm transition hover:bg-white/20"
-            >
-              Book a Demo
-            </Link>
+    <main className="relative isolate min-h-screen overflow-hidden bg-[#f4efe6] text-[#11213b]">
+      <div className="absolute inset-x-0 top-0 -z-10 h-[28rem] bg-[radial-gradient(circle_at_top_left,_rgba(196,154,86,0.18),_transparent_34%),linear-gradient(180deg,_#10203a_0%,_#172947_48%,_#f4efe6_100%)]" />
+
+      <MarketingHeader navItems={[{ label: "Back to Blog", href: "/blog" }, { label: "Pricing", href: "/pricing" }, { label: "Platform", href: "/#platform" }]} />
+
+      <article className="mx-auto w-full max-w-5xl px-5 py-16 md:px-8 md:py-20">
+        <div className="max-w-4xl">
+          <p className="inline-flex rounded-full border border-[#c49a56]/35 bg-white/8 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#f3dfbf]">
+            {post.readTime}
+          </p>
+          <h1 className="mt-6 text-5xl leading-[1] font-semibold tracking-[-0.04em] text-white md:text-7xl [font-family:Georgia,'Times_New_Roman',serif]">
+            {post.title}
+          </h1>
+          <p className="mt-6 max-w-3xl text-lg leading-8 text-white/76 md:text-xl">{post.summary}</p>
+        </div>
+
+        <div className="mt-10 overflow-hidden rounded-[2rem] border border-[#d9cfbf] bg-white shadow-[0_22px_70px_rgba(17,33,59,0.08)]">
+          <img src={post.imageUrl} alt={post.imageAlt} className="h-[440px] w-full object-cover" />
+
+          <div className="grid gap-8 p-6 md:p-10 lg:grid-cols-[1fr_0.34fr]">
+            <div className="space-y-6 text-lg leading-9 text-[#34415a]">
+              {post.content.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+
+            <aside className="space-y-6">
+              <div className="rounded-[1.5rem] border border-[#e9decd] bg-[#fbf7f0] p-5">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#8e6d38]">References</p>
+                <ul className="mt-4 space-y-3 text-sm leading-7 text-[#24334d]">
+                  {post.sources.map((source) => (
+                    <li key={source.href}>
+                      <a
+                        href={source.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="font-medium text-[#11213b] underline decoration-[#c49a56] underline-offset-4"
+                      >
+                        {source.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="rounded-[1.5rem] border border-[#d7c4a2] bg-[linear-gradient(135deg,#11213b_0%,#1d3152_100%)] p-5 text-white">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#d6b57a]">Next step</p>
+                <h2 className="mt-3 text-2xl font-semibold tracking-[-0.02em]">See how this looks inside MiseIQ</h2>
+                <p className="mt-4 text-sm leading-7 text-white/72">
+                  The platform is built to turn ideas like these into daily operational and financial visibility.
+                </p>
+                <div className="mt-5 flex flex-col gap-3">
+                  <Button
+                    asChild
+                    className="rounded-full bg-[#c49a56] text-[#11213b] hover:bg-[#d4b27f]"
+                  >
+                    <Link href="/demo">Book a Demo</Link>
+                  </Button>
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="rounded-full border-white/25 bg-transparent text-white hover:bg-white/10"
+                  >
+                    <Link href="/pricing">See Pricing</Link>
+                  </Button>
+                </div>
+              </div>
+            </aside>
           </div>
         </div>
-      </header>
-
-      <article className="mx-auto w-full max-w-4xl px-6 py-14">
-        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#112755]">{post.readTime}</p>
-        <h1 className="mt-3 text-5xl font-bold leading-tight">{post.title}</h1>
-
-        <img
-          src={post.imageUrl}
-          alt={post.imageAlt}
-          className="mt-8 h-[420px] w-full rounded-lg border border-slate-300 object-cover"
-        />
-
-        <div className="mt-8 space-y-5 text-lg leading-relaxed text-slate-700">
-          {post.content.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
-        </div>
-
-        <section className="mt-10 rounded-lg border border-slate-300 bg-white p-6">
-          <h2 className="text-2xl font-bold">References</h2>
-          <ul className="mt-3 space-y-2 text-slate-700">
-            {post.sources.map((source) => (
-              <li key={source.href}>
-                <a
-                  href={source.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="font-medium text-[#112755] underline decoration-[#c9a646] underline-offset-4"
-                >
-                  {source.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </section>
       </article>
+
+      <MarketingFooter />
     </main>
   );
 }
