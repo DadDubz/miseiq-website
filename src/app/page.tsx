@@ -221,13 +221,13 @@ export default function Home() {
       <section id="top" className="relative overflow-hidden">
         <div className="mx-auto grid w-full max-w-7xl gap-12 px-5 py-16 md:px-8 md:py-24 lg:grid-cols-[1.15fr_0.85fr]">
           <div className="max-w-3xl">
-            <p className="inline-flex rounded-full border border-[#c49a56]/35 bg-white/8 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#f3dfbf]">
+            <p className="inline-flex rounded-full border border-[#d6b57a]/45 bg-[#f4e7cb]/92 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#6f5324] shadow-[0_8px_30px_rgba(17,33,59,0.12)]">
               Restaurant finance operating system
             </p>
-            <h1 className="mt-6 max-w-4xl text-5xl leading-[0.95] font-semibold tracking-[-0.04em] text-white md:text-7xl [font-family:Georgia,'Times_New_Roman',serif]">
+            <h1 className="mt-6 max-w-4xl text-5xl leading-[0.95] font-semibold tracking-[-0.04em] text-[#fff7e8] md:text-7xl [font-family:Georgia,'Times_New_Roman',serif]">
               Financial Mise en Place for Restaurants
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/92 md:text-xl">
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#f2e6d0] md:text-xl">
               MiseIQ brings POS sales, invoices, inventory, guest traffic, delivery economics, occupancy costs,
               payables, and cash outlook into one operating system so restaurant teams can spot margin leaks, manage
               prime cost, and make faster owner-level decisions.
@@ -245,13 +245,13 @@ export default function Home() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="rounded-full border-white/55 bg-white/14 px-7 text-base text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] hover:bg-white/18"
+                className="rounded-full border-[#e6d6b8] bg-[#f6eddc] px-7 text-base text-[#11213b] shadow-[0_12px_30px_rgba(17,33,59,0.12)] hover:bg-[#fbf4e8]"
               >
                 <Link href="#platform">Explore the Platform</Link>
               </Button>
             </div>
 
-            <p className="mt-8 text-sm leading-7 text-white/82">
+            <p className="mt-8 text-sm leading-7 text-[#efe2ca]">
               Built for independent owners, multi-unit groups, operators, and finance-minded hospitality teams that
               need more than a sales dashboard.
             </p>
