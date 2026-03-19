@@ -20,7 +20,7 @@ const prepNotes = [
 export default function DemoPage() {
   return (
     <main className="relative isolate min-h-screen overflow-hidden bg-[#f4efe6] text-[#11213b]">
-      <div className="absolute inset-x-0 top-0 -z-10 h-[34rem] bg-[radial-gradient(circle_at_top_left,_rgba(196,154,86,0.18),_transparent_34%),radial-gradient(circle_at_top_right,_rgba(17,33,59,0.1),_transparent_30%),linear-gradient(180deg,_#10203a_0%,_#172947_38%,_#f4efe6_100%)]" />
+      <div className="absolute inset-x-0 top-0 -z-10 h-[46rem] bg-[radial-gradient(circle_at_top_left,_rgba(196,154,86,0.16),_transparent_34%),radial-gradient(circle_at_top_right,_rgba(17,33,59,0.1),_transparent_28%),linear-gradient(180deg,_#10203a_0%,_#172947_48%,_#233657_60%,_#f4efe6_92%)]" />
 
       <MarketingHeader navItems={[{ label: "Platform", href: "/#platform" }, { label: "Pricing", href: "/pricing" }, { label: "Blog", href: "/blog" }]} />
 
@@ -30,10 +30,10 @@ export default function DemoPage() {
             <p className="inline-flex rounded-full border border-[#d6b57a]/45 bg-[#f4e7cb]/92 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#6f5324] shadow-[0_8px_30px_rgba(17,33,59,0.12)]">
               Book a demo
             </p>
-            <h1 className="mt-6 text-5xl leading-[0.95] font-semibold tracking-[-0.04em] text-[#34415a] md:text-7xl [font-family:Georgia,'Times_New_Roman',serif]">
+            <h1 className="mt-6 text-5xl leading-[0.95] font-semibold tracking-[-0.04em] text-[#fff7e8] md:text-7xl [font-family:Georgia,'Times_New_Roman',serif]">
               See how MiseIQ connects restaurant operations to financial control
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#1c2b45] md:text-xl">
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#f2e6d0] md:text-xl">
               This walkthrough is built for owners, operators, and finance-minded restaurant teams who want a clearer
               view of prime cost, purchasing drift, delivery drag, payables, and cash pressure.
             </p>
@@ -52,7 +52,7 @@ export default function DemoPage() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="rounded-full border-[#d7c4a2] bg-[#efe3c8] px-7 text-base text-[#0f1b31] shadow-[0_12px_30px_rgba(17,33,59,0.12)] hover:bg-[#f6ecd8]"
+                className="rounded-full border-[#e6d6b8] bg-[#f6eddc] px-7 text-base text-[#11213b] shadow-[0_12px_30px_rgba(17,33,59,0.12)] hover:bg-[#fbf4e8]"
               >
                 <Link href="/pricing">Review Pricing</Link>
               </Button>
