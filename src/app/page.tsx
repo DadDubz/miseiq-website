@@ -224,10 +224,10 @@ export default function Home() {
             <p className="inline-flex rounded-full border border-[#d6b57a]/45 bg-[#f4e7cb]/92 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#6f5324] shadow-[0_8px_30px_rgba(17,33,59,0.12)]">
               Restaurant finance operating system
             </p>
-            <h1 className="mt-6 max-w-4xl text-5xl leading-[0.95] font-semibold tracking-[-0.04em] text-[#fff7e8] md:text-7xl [font-family:Georgia,'Times_New_Roman',serif]">
+            <h1 className="mt-6 max-w-4xl text-5xl leading-[0.95] font-semibold tracking-[-0.04em] text-[#0f1b31] md:text-7xl [font-family:Georgia,'Times_New_Roman',serif]">
               Financial Mise en Place for Restaurants
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#f2e6d0] md:text-xl">
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#1c2b45] md:text-xl">
               MiseIQ brings POS sales, invoices, inventory, guest traffic, delivery economics, occupancy costs,
               payables, and cash outlook into one operating system so restaurant teams can spot margin leaks, manage
               prime cost, and make faster owner-level decisions.
@@ -245,13 +245,13 @@ export default function Home() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="rounded-full border-[#e6d6b8] bg-[#f6eddc] px-7 text-base text-[#11213b] shadow-[0_12px_30px_rgba(17,33,59,0.12)] hover:bg-[#fbf4e8]"
+                className="rounded-full border-[#d7c4a2] bg-[#efe3c8] px-7 text-base text-[#0f1b31] shadow-[0_12px_30px_rgba(17,33,59,0.12)] hover:bg-[#f6ecd8]"
               >
                 <Link href="#platform">Explore the Platform</Link>
               </Button>
             </div>
 
-            <p className="mt-8 text-sm leading-7 text-[#efe2ca]">
+            <p className="mt-8 text-sm leading-7 text-[#253650]">
               Built for independent owners, multi-unit groups, operators, and finance-minded hospitality teams that
               need more than a sales dashboard.
             </p>

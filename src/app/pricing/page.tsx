@@ -116,10 +116,10 @@ export default function PricingPage() {
             <p className="inline-flex rounded-full border border-[#d6b57a]/45 bg-[#f4e7cb]/92 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#6f5324] shadow-[0_8px_30px_rgba(17,33,59,0.12)]">
               Pricing
             </p>
-            <h1 className="mt-6 text-5xl leading-[0.95] font-semibold tracking-[-0.04em] text-[#fff7e8] md:text-7xl [font-family:Georgia,'Times_New_Roman',serif]">
+            <h1 className="mt-6 text-5xl leading-[0.95] font-semibold tracking-[-0.04em] text-[#0f1b31] md:text-7xl [font-family:Georgia,'Times_New_Roman',serif]">
               Pricing built for serious restaurant operators
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#f2e6d0] md:text-xl">
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#1c2b45] md:text-xl">
               Clear per-location pricing for teams that need stronger financial control across operations, purchasing,
               delivery, and owner visibility. No vague platform bundles. No generic analytics upsell.
             </p>
@@ -136,7 +136,7 @@ export default function PricingPage() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="rounded-full border-[#e6d6b8] bg-[#f6eddc] px-7 text-base text-[#11213b] shadow-[0_12px_30px_rgba(17,33,59,0.12)] hover:bg-[#fbf4e8]"
+                className="rounded-full border-[#d7c4a2] bg-[#efe3c8] px-7 text-base text-[#0f1b31] shadow-[0_12px_30px_rgba(17,33,59,0.12)] hover:bg-[#f6ecd8]"
               >
                 <Link href="/#platform">Explore the Platform</Link>
               </Button>
