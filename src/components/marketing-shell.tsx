@@ -16,6 +16,7 @@ type MarketingHeaderProps = {
 };
 
 const defaultNavItems: NavItem[] = [
+  { label: "About", href: "/about" },
   { label: "Platform", href: "/#platform" },
   { label: "Pricing", href: "/pricing" },
   { label: "Blog", href: "/blog" },
@@ -69,6 +70,9 @@ export function MarketingFooter() {
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-4 px-5 py-8 text-sm text-[#516073] md:flex-row md:items-center md:justify-between md:px-8">
         <p>MiseIQ is restaurant finance software for margin control, operating visibility, and owner-level decisions.</p>
         <div className="flex flex-wrap gap-4">
+          <Link href="/about" className="transition hover:text-[#11213b]">
+            About
+          </Link>
           <Link href="/#platform" className="transition hover:text-[#11213b]">
             Platform
           </Link>

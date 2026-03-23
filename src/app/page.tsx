@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
+  { label: "About", href: "/about" },
   { label: "Platform", href: "#platform" },
   { label: "Who It's For", href: "#audience" },
   { label: "Trust", href: "#trust" },
@@ -90,6 +91,7 @@ const metricCards = [
   },
 ];
 
+
 const featureGroups = [
   {
     eyebrow: "Sales and operations intelligence",
@@ -148,6 +150,13 @@ const audienceCards = [
   },
 ];
 
+const upcomingExpansion = {
+  eyebrow: "Coming soon",
+  title: "A MiseIQ tier for small and medium resorts",
+  body:
+    "MiseIQ is expanding beyond restaurants with a forthcoming tier built for small and medium resorts that need the same operational and financial control across more complex hospitality workflows.",
+};
+
 const comparisonRows = [
   {
     label: "What data gets connected",
@@ -177,6 +186,7 @@ const trustPoints = [
   "Operational alerts, monitoring direction, and production hardening mindset",
   "Built for teams that treat restaurant financial data as an operating asset, not a loose collection of exports",
 ];
+
 
 const finalCtas = [
   { label: "Book a Demo", href: "/demo" },
@@ -424,6 +434,12 @@ export default function Home() {
                 <p className="mt-4 text-sm leading-7 text-[#4f5b6d]">{card.body}</p>
               </div>
             ))}
+          </div>
+
+          <div className="mt-8 rounded-[1.75rem] border border-[#d7c4a2] bg-[linear-gradient(135deg,#11213b_0%,#1d3152_100%)] p-7 text-white shadow-[0_22px_70px_rgba(17,33,59,0.12)]">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#d6b57a]">{upcomingExpansion.eyebrow}</p>
+            <h3 className="mt-3 text-3xl font-semibold tracking-[-0.03em] text-[#fff7e8]">{upcomingExpansion.title}</h3>
+            <p className="mt-4 max-w-3xl text-base leading-8 text-[#f2e6d0]">{upcomingExpansion.body}</p>
           </div>
         </div>
       </section>
