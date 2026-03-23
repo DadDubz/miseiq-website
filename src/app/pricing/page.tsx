@@ -75,6 +75,18 @@ const includedAreas = [
   },
 ];
 
+const upcomingTier = {
+  eyebrow: "Coming soon",
+  title: "Small and medium resort tier",
+  body:
+    "A forthcoming MiseIQ tier is being designed for small and medium resorts that want the same discipline around operational data, financial control, and faster owner-level decisions.",
+  points: [
+    "Built to extend the MiseIQ model beyond traditional restaurants",
+    "Intended for hospitality operators with more complex property workflows",
+    "Restaurant plans remain the current primary offering",
+  ],
+};
+
 export default function PricingPage() {
   const [billingCycle, setBillingCycle] = useState<BillingCycle>("monthly");
 
@@ -236,6 +248,25 @@ export default function PricingPage() {
             </div>
           );
         })}
+      </section>
+
+      <section className="mx-auto w-full max-w-7xl px-5 pb-16 md:px-8">
+        <div className="rounded-[2rem] border border-[#d7c4a2] bg-[linear-gradient(135deg,#11213b_0%,#1d3152_100%)] p-7 text-white shadow-[0_24px_80px_rgba(17,33,59,0.14)]">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#d6b57a]">{upcomingTier.eyebrow}</p>
+          <div className="mt-4 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+            <div>
+              <h2 className="text-3xl font-semibold tracking-[-0.03em] text-[#fff7e8]">{upcomingTier.title}</h2>
+              <p className="mt-4 text-base leading-8 text-[#f2e6d0]">{upcomingTier.body}</p>
+            </div>
+            <div className="grid gap-3">
+              {upcomingTier.points.map((point) => (
+                <div key={point} className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-sm leading-7 text-white/80">
+                  {point}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
 
       <section className="border-y border-[#ded2be] bg-[#efe7d8] py-16 md:py-20">
